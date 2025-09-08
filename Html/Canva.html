@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas Practice</title>
+    <style>
+        .canva{
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <h1>HTML Canvas Example</h1>
+    <canvas class="canva" width="800" height="800" id="myCanvas" style="border: 9px solid red ;"></canvas>
+    
+</body>
+</html>
+<script>
+    const canvas = document.getElementById("myCanvas");
+    const ctx = canvas.getContext("2d");
+
+    ctx.beginPath();
+    ctx.fillStyle = "Black";
+    //co-ordinates - x , y,r,start-angle,end-angle
+    ctx.arc(410,410,10,0,2*Math.PI)
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.moveTo(410 , 2);
+    ctx.lineTo(410,410);
+    ctx.strokeStyle = "Green";
+    ctx.lineWidth = 10 ;
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(730 , 250);
+    ctx.lineTo(410,410);
+    ctx.strokeStyle = "blue";
+    ctx.lineWidth = 7 ;
+    ctx.stroke();
+
+
+</script>
