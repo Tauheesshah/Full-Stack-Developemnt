@@ -1,0 +1,12 @@
+body{
+    height: 95vh;
+    border:6px solid red;
+}
+
+.img{
+    height: inherit;
+    background-image: url(https://cdn.pixabay.com/photo/2015/10/30/20/13/sunrise-1014712_1280.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
