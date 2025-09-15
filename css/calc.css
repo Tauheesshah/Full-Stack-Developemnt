@@ -1,0 +1,35 @@
+:root {
+    --width:250px;
+    --width_1:200px;
+    --height:100px;
+    --height-1:100px;
+    --blue : blue;
+    --red : red;
+    --gray:gray;
+}
+
+.container{
+    border: 1px solid red;
+    width: 100px;
+    height: 150px;
+    background-color: blue;
+}
+
+.container_1{
+    border: 1px solid green;
+    background-color: purple;
+    width: calc(var(--width_1) + var(--width));
+    height: calc(var(--height-1) + var(--height));
+}
+
+.btn-b{
+    color: var(--blue);
+    background-color: var(--gray);
+    border: none;
+}
+
+.btn-r{
+    color: var(--red);
+    background-color: var(--gray);
+    border: none;
+}

@@ -1,0 +1,30 @@
+.btn{
+    width: 250px;
+    height: 50px;
+    background-color: blue;
+    color: white;
+    border: none;
+    outline: none;
+    text-transform: capitalize;
+}
+
+.btn:hover{
+    cursor: pointer;
+    background-color: black;
+    color: red;
+    text-transform: uppercase;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* : -> this is psudo-Class
+:: --> this is psudo-element */
+
+.btn::before{
+    content: ' Hello ';
+}
+
+.btn::after{
+    content: ' Button ';
+    border: 2px solid greenyellow;
+}
