@@ -1,0 +1,16 @@
+.content-img{
+    border: 1px solid red;
+}
+.content-img > img{
+    width: 230px;
+    height: 150px;
+    scale: 0.2;
+    /* opacity: 0.00; */
+}
+
+.content-img > img:hover{
+    /* opacity: 1; */
+    scale: 1;
+    transition: all 0.3s ease-in-out;
+}
+
