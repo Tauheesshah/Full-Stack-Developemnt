@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Logo Animation</title>
+    <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      
+    }
+
+    .logo {
+      width: 150px;
+      /* transition: transform 0.3s ease-in-out; */
+    }
+    @keyframes rotateLogo {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .logo:hover {
+      animation: rotateLogo 1s linear forwards;
+    }
+    </style>
+</head>
+<body>
+    <div class="Container">
+        <img src=".//image.png" alt="React Image" class="logo">
+    </div>
+</body>
+</html>
