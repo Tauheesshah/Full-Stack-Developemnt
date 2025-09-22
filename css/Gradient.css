@@ -1,0 +1,55 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    margin-top: 300px;
+    background: linear-gradient(to bottom right,gray,pink,green);
+    padding: 40px 0;
+}
+
+h1{
+    text-transform: capitalize;
+    font-size: 70px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    text-align: center;
+    background: linear-gradient(to bottom right,blue,red,yellow);
+    /* Here we can take degrees intead of bottom right like 180deg without using to give direct degrees */
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* 
+A radial gradient radiates outward from a center points(like a ripple in water)
+background :raidal-gradient(shape size at position,color1,color,2.......) */
+
+.radial{
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle,yellow,orange,red,blue);
+    border: 2px solid black;
+    margin-top:200px;
+    margin-left:600px;
+}
+
+/* A conic gradient spins clolor around points (like apie chart)
+backgrond :conic-gradient(from angle at position, color1,color2.......); */
+
+.conic{
+    margin-left: 600px;
+    margin-top: 200px;
+    width:200px;
+    height: 200px;
+    background: conic-gradient(from 0deg at center,
+        red,
+        yellow,
+        green,
+        blue,
+        red
+    );
+    border-radius: 50%;
+    border: 2px solid black;
+}
