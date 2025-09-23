@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.Main{
+    border: 1px solid red;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    width: 100%;
+    text-align: center;
+    border: 2px solid gray;
+    margin: 10px;
+    padding: 10px;
+    outline: 2px;
+    outline-offset: 5px;
+    outline-style: solid;
+    outline-color: purple;
+}
+
+.button{
+    margin: 50px 50px;
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: 2px solid;
+    outline: 2px solid;
+    outline-offset: -6px;
+    border-top: 0;
+    border-bottom: 0;
+    background: transparent;
+    /* background: linear-gradient(to bottom right,gray,pink,green); */
+    /* background: radial-gradient(circle,yellow,orange,red,blue); */
+}
