@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-transform: uppercase;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bolder;
+            font-size: 22px;
+        }
+        body{
+            border: 1px solid gray;
+            height: 95vh;
+        }
+        .box{
+            background: navy;
+            text-align: center;
+            color: white;
+            padding: 10px 40px;
+            border-radius: 10px;
+            height: 68px;
+            display: flex;
+            align-items: center;
+        }
+        .mainContainer{
+            height: inherit;
+            display: flex;
+            justify-content: center;
+            margin-top: 130px;
+            gap: 10px;
+            width: 100%;
+        }
+        .child1,.child4,.child5,.child6{
+            background-color: #e8e8e8;
+            color: black;
+        }
+        .child2{
+            background: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2px;
+        }
+        .child3{
+            background: #4c6120;
+        }
+        img{
+            width: 63px;
+            height: 51px;
+        }
+    </style>
+</head>
+<body>
+    <div class="mainContainer">
+        <div class=" box child1">eegs,meat <br>and fish</div>
+        <div class=" box child2">
+            <img src="./Images/NeuPass.png"> <span>neu</span> <span style="color: #e9914e;">pass</span>
+        </div>
+        <div class=" box child3">ayurveda</div>
+        <div class=" box child4">buy more <br> save more</div>
+        <div class=" box child5">deals <br> of the week</div>
+        <div class=" box child6">combo store</div>
+</body>
+</html>

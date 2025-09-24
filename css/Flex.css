@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    border: 1px solid orange;
+    height: 95vh;
+}
+.box{
+    width: 105px ;
+    height: 50px;
+    background: purple;
+    text-align: center;
+    color: white;
+    line-height: 50px;
+    border-radius: 10px;
+}
+
+.mainContainer{
+    border: 1px dashed black;
+    height: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    /* flex-direction: column-reverse; */
+    flex-wrap: wrap;
+    width: 100%;
+}
+.child1 , .child5{
+    flex-shrink: 0.5;
+}
+.child3{
+    flex-grow: 0.1;
+}
