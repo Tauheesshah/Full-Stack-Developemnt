@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex Box</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding: 20px;
+        }
+        .row{
+            display: flex;
+            gap: 15px;
+        }
+        .box{
+            background: yellowgreen;
+            border: 3px solid black;
+            height: 100px;
+         }
+        .grow1 { flex-grow: 1; }
+        .grow2 { flex-grow: 2; }
+        .grow3 { flex-grow: 3; }
+        .grow4 { flex-grow: 4; }
+
+        .boxs{
+            background: rgb(66, 62, 179);
+            color: white;
+            border: 3px solid black;
+            padding: 5px;
+            border-radius: 5px;
+            /* height: 100px; */
+         }
+         .rows{
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0px ;
+         }
+         .mainModel{
+            width: 22%;
+         }
+    </style>
+</head>
+<body>
+    <div class="row">
+        <div class="box grow1"></div>
+        <div class="box grow4"></div>
+        <div class="box grow1"></div>
+    </div>
+    <div class="row">
+        <div class="box grow3"></div>
+        <div class="box grow1"></div>
+        <div class="box grow2"></div>
+    </div>
+    <div class="row">
+        <div class="box grow1"></div>
+        <div class="box grow2"></div>
+        <div class="box grow4"></div>
+    </div>
+    <div class="row">
+        <div class="box grow2"></div>
+        <div class="box grow1"></div>
+        <div class="box grow2"></div>
+        <div class="box grow1"></div>
+        <div class="box grow2"></div>
+    </div>
+
+    <!-- NEXT MODEL FROM HERE -->
+<div class="mainModel">
+    <div class="rows">
+        <div class="boxs">Turnip</div>
+        <div class="boxs">greens</div>
+        <div class="boxs">yannw</div>
+        <div class="boxs">ricebean</div>
+    </div>
+    <div class="rows">
+        <div class="boxs">rutabaga</div>
+        <div class="boxs">endiv</div>
+        <div class="boxs">cauliflower</div>
+    </div>
+    <div class="rows">
+        <div class="boxs">sea lettuce</div>
+        <div class="boxs">kohribi</div>
+        <div class="boxs">amarnath</div>
+    </div>
+</div>
+</body>
+</html>
