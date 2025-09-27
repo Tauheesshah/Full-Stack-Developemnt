@@ -1,0 +1,55 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    border: 1px solid red;
+    width: 100%;
+}
+.container{
+    border: 1px dashed green;
+    gap: 10px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-areas: 
+    "props1 props2 props3"
+    "props4 props5 props6"
+    "props7 props8 props9";
+
+    justify-items: center;
+    align-items: center;
+}
+
+.child > img{
+    width: 380px;
+    aspect-ratio: 18/15;
+}
+
+.props-1{
+    grid-area: props1;
+}
+.props-2{
+    grid-area: props2;
+}
+.props-3{
+    grid-area: props3;
+}
+.props-4{
+    grid-area: props4;
+}
+.props-5{
+    grid-area: props5;
+}
+.props-6{
+    grid-area: props6;
+}
+.props-7{
+    grid-area: props7;
+}
+.props-8{
+    grid-area: props8;
+}
+.props-9{
+    grid-area: props9;
+}

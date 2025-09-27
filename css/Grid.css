@@ -1,0 +1,29 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    border: 1px solid gray;
+    height: 100vh;
+}
+.container{
+    border: 1px dashed black;
+    width: 60%;
+    gap: 10px;
+    /* display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    justify-content: center; */
+    height: inherit;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    justify-self: center;
+    justify-items: center;
+    align-items: center;
+}
+.child{
+    width: 200px;
+    height: 200px;
+    background: red;
+}
