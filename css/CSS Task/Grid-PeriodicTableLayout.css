@@ -1,0 +1,128 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.mainContainer{
+    border: 1px solid black;
+    height: 100%;
+    width: 100%;
+    gap: 10px;
+    display: grid;
+    grid-template-columns: repeat(18, 1fr);
+    grid-template-areas:
+        "a_1 . . . . . . . . . . . . . . . a_2 a_3"
+        "a_4 a_5 . . . . . . . . . . a_6 a_7 a_8 a_9 a_10 a_11"
+        "a_12 a_13 . . . . . . . . . . a_14 a_15 a_16 a_17 a_18 a_19"
+        "a_20 a_21 a_22 a_23 a_24 a_25 a_26 a_27 a_28 a_29 a_30 a_31 a_32 a_33 a_34 a_35 a_36 a_37"
+        "a_38 a_39 a_40 a_41 a_42 a_43 a_44 a_45 a_46 a_47 a_48 a_49 a_50 a_51 a_52 a_53 a_54 a_55"
+        "a_56 a_57 a_58 a_59 a_60 a_61 a_62 a_63 a_64 a_65 a_66 a_67 a_68 a_69 a_70 a_71 a_72 a_73"
+        "a_74 a_75 a_76 a_77 a_78 a_79 a_80 a_81 a_82 a_83 a_84 a_85 a_86 a_87 a_88 a_89 a_90 a_91"
+        ". . . . . a_92 a_93 a_94 a_95 a_96 a_97 a_98 a_99 a_100 a_101 . . .";
+    }
+.box{
+     /* height: 100%; */
+    width: 100%;
+    background-color: blueviolet;
+}
+.a_1{ grid-area: a_1 }; 
+.a_2 { grid-area: a_2 }; 
+.a_3 { grid-area: a_3 }; 
+.a_4 { grid-area: a_4 }; 
+.a_5 { grid-area: a_5 }; 
+.a_6 { grid-area: a_6 }; 
+.a_7 { grid-area: a_7 }; 
+.a_8 { grid-area: a_8 }; 
+.a_9 { grid-area: a_9};
+.a_10 { grid-area: a_10}; 
+.a_11 { grid-area: a_11}; 
+.a_12 { grid-area: a_12}; 
+.a_13 { grid-area: a_13}; 
+.a_14 { grid-area: a_14}; 
+.a_15 { grid-area: a_15}; 
+.a_16 { grid-area: a_16}; 
+.a_17 { grid-area: a_17}; 
+.a_18 { grid-area: a_18}; 
+.a_19 { grid-area: a_19}; 
+.a_20 { grid-area: a_20}; 
+.a_21 { grid-area: a_21}; 
+.a_22 { grid-area: a_22}; 
+.a_23 { grid-area: a_23}; 
+.a_24 { grid-area: a_24}; 
+.a_25 { grid-area: a_25}; 
+.a_26 { grid-area: a_26}; 
+.a_27 { grid-area: a_27}; 
+.a_28 { grid-area: a_28}; 
+.a_29 { grid-area: a_29}; 
+.a_30 { grid-area: a_30}; 
+.a_31 { grid-area: a_31}; 
+.a_32 { grid-area: a_32}; 
+.a_33 { grid-area: a_33}; 
+.a_34 { grid-area: a_34}; 
+.a_35 { grid-area: a_35}; 
+.a_36 { grid-area: a_36}; 
+.a_37 { grid-area: a_37}; 
+.a_38 { grid-area: a_38}; 
+.a_39 { grid-area: a_39}; 
+.a_40 { grid-area: a_40}; 
+.a_41 { grid-area: a_41}; 
+.a_42 { grid-area: a_42}; 
+.a_43 { grid-area: a_43}; 
+.a_44 { grid-area: a_44}; 
+.a_45 { grid-area: a_45}; 
+.a_46 { grid-area: a_46}; 
+.a_47 { grid-area: a_47}; 
+.a_48 { grid-area: a_48}; 
+.a_49 { grid-area: a_49}; 
+.a_50 { grid-area: a_50}; 
+.a_51 { grid-area: a_51}; 
+.a_52 { grid-area: a_52}; 
+.a_53 { grid-area: a_53}; 
+.a_54 { grid-area: a_54}; 
+.a_55 { grid-area: a_55}; 
+.a_56 { grid-area: a_56}; 
+.a_57 { grid-area: a_57}; 
+.a_58 { grid-area: a_58}; 
+.a_59 { grid-area: a_59}; 
+.a_60 { grid-area: a_60}; 
+.a_61 { grid-area: a_61}; 
+.a_62 { grid-area: a_62}; 
+.a_63 { grid-area: a_63}; 
+.a_64 { grid-area: a_64}; 
+.a_65 { grid-area: a_65}; 
+.a_66 { grid-area: a_66}; 
+.a_67 { grid-area: a_67}; 
+.a_68 { grid-area: a_68}; 
+.a_69 { grid-area: a_69}; 
+.a_70 { grid-area: a_70}; 
+.a_71 { grid-area: a_71}; 
+.a_72 { grid-area: a_72}; 
+.a_73 { grid-area: a_73}; 
+.a_74 { grid-area: a_74}; 
+.a_75 { grid-area: a_75}; 
+.a_76 { grid-area: a_76}; 
+.a_77 { grid-area: a_77}; 
+.a_78 { grid-area: a_78}; 
+.a_79 { grid-area: a_79}; 
+.a_80 { grid-area: a_80}; 
+.a_81 { grid-area: a_81}; 
+.a_82 { grid-area: a_82}; 
+.a_83 { grid-area: a_83}; 
+.a_84 { grid-area: a_84}; 
+.a_85 { grid-area: a_85}; 
+.a_86 { grid-area: a_86}; 
+.a_87 { grid-area: a_87}; 
+.a_88 { grid-area: a_88}; 
+.a_89 { grid-area: a_89}; 
+.a_90 { grid-area: a_90}; 
+.a_91 { grid-area: a_91}; 
+.a_92 { grid-area: a_92}; 
+.a_93 { grid-area: a_93}; 
+.a_94 { grid-area: a_94}; 
+.a_95 { grid-area: a_95}; 
+.a_96 { grid-area: a_96}; 
+.a_97 { grid-area: a_97}; 
+.a_98 { grid-area: a_98}; 
+.a_99 { grid-area: a_99}; 
+.a_100 { grid-area: a_100; }
+.a_101 { grid-area: a_101; }
