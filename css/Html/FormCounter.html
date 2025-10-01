@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Counter</title>
+    <style>
+        /* counter-reset - Creates or resets a counter
+        counter-increment - Increments a counter value
+        content - Inserts generated content
+        counter() or counters() function - Adds the value of a counter to an element */
+        body{
+            counter-reset: value;
+        }
+        .text:hover{
+            font-size: 4rem !important;
+        }
+        h2::before {
+            counter-increment: value;
+            content: "DATA" counter(value)" -->";
+        }
+    </style>
+</head>
+<body>
+    <h1 class="text">Using CSS Counters</h1>
+    <h2>CSS Tutorial</h2>
+    <h2>JavaScript Tutorial</h2>
+    <h2>Python Tutorial</h2>
+    <h2>SQL Tutorial</h2>
+    <h2>SQL Tutorial</h2>
+    <h2>SQL Tutorial</h2>
+    <h2>SQL Tutorial</h2>
+    <h2>SQL Tutorial</h2>
+    <h2>SQL Tutorial</h2>
+    <h2>SQL Tutorial</h2>
+    <h2>SQL Tutorial</h2>
+    <h2>SQL Tutorial</h2>
+</body>
+</html>
