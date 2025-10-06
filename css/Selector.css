@@ -1,0 +1,61 @@
+*{
+    margin: 0;
+    padding: 0%;
+    box-sizing: border-box;
+}
+body,html{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* ! child-combinator : The child combinator( > ) is placed between two css selector . IT matches only those element matched bu 
+the second selector that are the direct children of elements matched by the first */
+
+.combinator > h1{
+    color: red;
+}
+
+/* #  Descendant Combinator:typically represents by a single space ("") character-combines two selector such that element matched by the second
+selectorcare selected if they have ancestor (parent,parents parent parents parents etc) element matching the first selector selector 
+selector that utilizes a descent combinaator are called descedent selector */
+
+li{
+    list-style-type: disc;
+}
+
+li li {
+    list-style-type: circle;
+}
+
+/* & The subsequent-sibling combinator (~ a tiletide separates two selector and matched all instance of the second element that
+follow te first element (not necessarily immediately) and share the same parent elemnt */
+
+p ~ span{
+    color: blue;
+}
+
+li:first-of-type + li {
+    color: purple;
+    font-weight: bold;
+    border: 3px dashed gray;
+}
+
+p > b + br + i{
+    color: gold;
+    background: green;
+}
+.example{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.2rem;
+    & > a {
+        color: tomato;
+        &:hover,&:focus{
+            color: white;
+            background-color: tomato;
+        }
+    }
+}

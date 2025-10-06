@@ -1,0 +1,99 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+.mainContainer{
+     margin: 0px;
+}
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 10px -2px 11px gray;
+    height: 70px;
+    padding: 0px 60px;
+    margin-bottom: 0rem;
+}
+.rightNav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin: 0px;
+}
+.containerTop{
+    height: 60vh;
+    padding-top: 100px;
+    text-align: center;
+    background: whitesmoke
+}
+.font{
+    font-size: xxx-large;
+    font-weight: 600;
+}
+.font span{
+    color: orangered;
+}
+.font1{
+    width: 650px;
+    height: 77px;
+    font-size: larger;
+    font-weight: 500;
+    margin-bottom: 50px;
+}
+.conatinerTop-1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.btnGetInTouch{
+    padding: 5px 50px;
+    border-radius: 8px;
+    color: white;
+    background-color: orangered;
+}
+.images img{
+    height: 80px;
+}
+.box{
+    display: flex;
+    margin: 0px 30px;
+    justify-content: center;
+    gap: 79px;
+    padding: 5% 0%;
+}
+.aboutMe{
+    width: 30%;
+}
+.aboutMe h2{
+    border-bottom: 2px solid orangered;
+    padding: 0px 0px 7px 0px;
+}
+.images{
+    position: relative;
+    /* border: 1px solid black; */
+    height: inherit;
+    width:36%;
+}
+.html,.css,.javascript,.react,.vue{
+    position: absolute;
+}
+.css{
+    right: 0px;
+    top: 20px;
+}
+.javascript{
+    bottom: 0px;
+    right: 0px;
+}
+.vue{
+    bottom: 20px;
+    left: 30px;
+}
+.react{
+    top: 37%;
+    right: 45%;
+}

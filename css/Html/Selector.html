@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selector</title>
+    <link rel="stylesheet" href="../Selector.css">
+</head>
+<body>
+    <div class="combinator">
+        <h1>Hello</h1>
+        <h1>Hello</h1>
+        <h1>Hello</h1>
+        <h1>Hello</h1>
+        <h1>Hello</h1>
+    </div>
+
+    <ul>
+        <li>
+            <div>Item 1</div>
+            <ul>
+                <li>subitem A</li>
+                <li>subitem B</li>
+            </ul>
+        </li>
+        <li>
+            <div>Item 2</div>
+            <ul>
+                <li>subitem A</li>
+                <li>subitem B</li>
+            </ul>
+        </li>
+    </ul>
+
+    <article>
+        <p>Hello</p>
+        <span>This is not red because it appears before and </span>
+        <p>Here is a paragraph</p>
+        <code>Here is some code</code>
+        <span>This is red because it appears after the parent are other nodes in between</span>
+        <p>whatever it may be keep smilling</p>
+        <h1>Dream Big</h1>
+        <span>Doesnt matter how many or what kind of nodes are the parent after a paragraph are red</span>
+    </article>
+    <span>
+        This is not red because it doesnt share a parent with aparagraph
+    </span>
+    <ul>
+        <li>one</li>
+        <li>Two</li>
+        <li>Three</li>
+    </ul>
+    <p>
+        <b>heloo</b><br>
+        <i>hello</i>
+    </p>
+
+    <p>This paragraph <a href="#">Has a link</a></p>
+    <svg width="400" viewbox="0 0 400 20">
+        <a href="#">
+            <text x="0" y="15" >link created in svg</text>
+        </a>
+    </svg>
+    <p class="example">
+        This paragraph <a href="#">Contain a  link</a>
+    </p>
+</body>
+</html>
