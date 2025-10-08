@@ -1,0 +1,59 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.mainContainer{
+    background-color: rgb(231, 227, 227);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Login{
+    border: 1px solid black;
+    height: 50%;
+    width: 30%;
+    border-radius: 8px;
+    padding:20px;
+    background-color: white;
+}
+.loginText{
+    font-size: xx-large;
+    font-weight: bold;
+    padding-bottom: 13px;
+   
+}
+label{
+    display: block;
+    font-size: large;
+    padding: 5px 0px ;
+}
+.text,.password,.Email{
+    width: 90%;
+    height: 30px;
+    border-radius: 5px;
+    padding-left: 5px;
+    border: 1px solid gray;
+}
+
+button{
+    margin-top: 20px;
+    width: 90%;
+    height: 30px;
+    background-color: green;
+    color: white;
+    /* padding: 5px 0px; */
+    border: none;
+    border-radius:5px ;
+    text-align: center;
+}
+.newORregister{
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: blue;
+    text-decoration: underline;
+    font-size: large;
+
+}
