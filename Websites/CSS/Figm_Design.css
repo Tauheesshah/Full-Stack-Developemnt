@@ -97,3 +97,21 @@
     top: 37%;
     right: 45%;
 }
+.conatainerComapanyWorked{
+    background-color: whitesmoke;
+    padding: 50px 0px ;
+}
+.conatainerComapanyWorked h3{
+    text-align: center;
+}
+.websitesImages{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding-top: 20px;
+}
+.conatainerComapanyWorked img{
+   /* height: 9%; */
+    width: 12%;
+}

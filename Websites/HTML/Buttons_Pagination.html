@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buttons Pagination</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .pagination_Box{
+            height: 50px;
+            width: 60%;
+            background-color: whitesmoke;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin: 20px;
+            box-shadow: 1px 1px 5px gray;
+        }
+        .pagination_Box > p{
+            /* border: 1px solid black; */
+            width: 36px;
+            height: 60%;
+            text-align: center;
+            padding-top: 5px;
+        }
+        p:hover{
+            background-color: white;
+            box-shadow: 1px 1px 5px gray;
+            transition: all 0.1s ease-in-out ;
+            border-radius: 5px;
+        }
+
+        .paginationBox_2{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            color: white;
+            width: 50%;
+        }
+        .paginationBox_2 p{
+            border: 1px solid black;
+            width: 50px;
+            height: 30px;
+            background-color: gray; 
+            border-radius: 7px;
+            text-align: center;
+            padding-top: 5px;
+        }
+        .paginationBox_2 h4{
+            border: 1px solid black;
+            width: 90px;
+            height: 30px;
+            background-color: gray;
+            text-align: center;
+            border-radius: 7px;
+            padding-top: 4px;
+        }
+        .paginationBox_2 p:hover{
+            background-color: red;
+        }
+        .paginationBox_3{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            color: white;
+            width: 50%;
+             border: 1px solid black;
+             padding: 10px;
+             background-color: aquamarine;
+             margin: 30px;
+        }
+        .paginationBox_3 p{
+           
+            width: 50px;
+            height: 30px;
+            background-color: white;
+            color: black; 
+            text-align: center;
+            padding-top: 5px;
+            box-shadow: 1px 1px 5px gray;
+        }
+        .paginationBox_3 h4{
+            border: 1px solid black;
+            width: 100px;
+            height: 30px;
+            background-color: white;
+            text-align: center;
+            padding-top: 4px;
+            color: black;
+        }
+        .paginationBox_3>p:hover{
+            background-color: blue;
+            border-radius: 0px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="pagination_Box">
+        <span>PAGE</span>
+        <p>1</p>
+        <p>2</p>
+        <p>3</p>
+        <p>4</p>
+        <p>5</p>
+        <p>6</p>
+        <p>7</p>
+        <p>8</p>
+        <p>9</p>
+        <span>..............</span>
+        <p>103</p>
+        <p>104</p>
+    </div>
+
+    <div class="paginationBox_2">
+        <h4>First</h4>
+        <p><<</p>
+        <p>1</p>
+        <p>2</p>
+        <p>3</p>
+        <p>4</p>
+        <p>5</p>
+        <p>6</p>
+        <p>>></p>
+        <h4>Last>></h4>
+    </div>
+
+    <div class="paginationBox_3">
+        <h4>PAGE1 of 11</h4>
+        <p><<</p>
+        <p>1</p>
+        <p>2</p>
+        <p>3</p>
+        <p>4</p>
+        <p>5</p>
+        <p>6</p>
+        <p>....</p>
+        <h4>LAST>></h4>
+    </div>
+</body>
+</html>
