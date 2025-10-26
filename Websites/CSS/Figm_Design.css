@@ -24,7 +24,7 @@
     margin: 0px;
 }
 .containerTop{
-    height: 60vh;
+    /* height: 60vh; */
     padding-top: 100px;
     text-align: center;
     background: whitesmoke
@@ -54,6 +54,7 @@
     border-radius: 8px;
     color: white;
     background-color: orangered;
+    margin-bottom: 60px;
 }
 .images img{
     height: 80px;
