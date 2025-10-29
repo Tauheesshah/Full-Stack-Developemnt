@@ -1,0 +1,13 @@
+
+FORMAT OF THE DATA IN JS
+
+"name"    -> string
+01        -> number
+true/false          ->  boolean
+[cs,pubg,coc]       ->  array/collections
+{name,age,address,contact}         ->  object/documents
+undefined    -> undefined
+null         -> null
+big-IN       -> 9.021610541
+
+[{},{},{}]   -> collection of documents in mongodb
