@@ -28,7 +28,7 @@
 
 
 
-
+//Take a month number (1–12). Print the month name.
 // let month=2;
 // switch(true){
 //     case month==1:
@@ -68,6 +68,16 @@
 //         console.log("December");
 //         break;
 // }
+
+
+
+
+
+// Input a number (1–4). Print:
+// 1 → Addition
+// 2 → Subtraction
+// 3 → Multiplication
+// 4 → Division
 
 
 

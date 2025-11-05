@@ -119,3 +119,33 @@
 //     console.log("its an Constant")
 // }
 
+//Check if a number is divisible by both 3 and 5.
+
+// let num= 15;
+// if (num%3==0 && num%5==0){
+//     console.log("Divisible")
+// }
+// else{
+//     console.log("Not divisible")
+// }
+
+
+// A temperature is given. Print:
+// ≤ 10°C → Cold
+// 11–25°C → Pleasant
+// >= 25°C → Hot
+
+
+// let temp=26
+// if(temp<=10){
+//     console.log("Cold")
+// }
+// else if(temp>=11 && temp<=25){
+//     console.log("Pleasent")
+// }
+// else if(temp>25){
+//     console.log("Hot")
+// }
+// else{
+//     console.log("Invalid")
+// }
