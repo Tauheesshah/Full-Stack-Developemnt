@@ -99,8 +99,5 @@ function capitalizeWords(str) {
 console.log("8️⃣ Capitalized string:", capitalizeWords("hello world from javascript"));
 
 
-
-
 // Intermediate Function Practice
-
 
