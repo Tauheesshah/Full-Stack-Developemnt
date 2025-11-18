@@ -17,4 +17,5 @@ let data1=arr.reduce((acc,curr)=>{
 console.log(data1)
 
 
-//
+
+
