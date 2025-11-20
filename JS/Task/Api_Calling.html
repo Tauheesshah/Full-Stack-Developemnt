@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Api Calling Task</title>
+    <style>
+    #products div {
+        display: inline-block;
+        width: 200px;
+        text-align: center;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    </style>
+</head>
+<body>
+    <h1>API CALLING TASK</h1>
+    <div id="products"></div>
+</body>
+<script>
+    let api = "https://fakestoreapi.com/products";
+
+function ApiCalling() {
+    fetch(api)
+        .then((res) => res.json())
+        .then((res) => {
+            let output = "";
+            res.forEach(item => {
+                output += `
+                    <div style="border:1px solid #ccc; padding:10px; margin:10px;">
+                        <h3>${item.title}</h3>
+                        <img src="${item.image}" width="100" />
+                        <p><strong>Price:</strong> $${item.price}</p>
+                        <p><strong>Category:</strong> ${item.category}</p>
+                    </div>
+                `;
+            });
+            document.getElementById("products").innerHTML = output;
+        })
+        .catch((err) => {
+            console.log(err);
+        });
+}
+
+ApiCalling();
+
+</script>
+<!-- <script>
+let api="https://fakestoreapi.com/products";
+const  ApiCalling= async ()=>{
+
+    try {
+        let res = await fetch(api)
+        console.log(res)
+        let data = await res.json()
+        console.table(data)
+    } catch (error) {
+        console.log(error)
+    }
+    // fetch(api)
+    // .then((res)=>res.json())
+    // .then((res)=>{console.table(res)})
+    // .catch((err)=>{
+    //     console.log(res);
+    // })
+}
+ApiCalling();
+</script> -->
+</html>
+
+
+
+
+
+
+
+
+
+
+
