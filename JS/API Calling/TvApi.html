@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tv Api Calling</title>
+    <style>
+        #Container{
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tv Api Call</h1>
+    <input id="input" type="text" placeholder="Enter the name of the Movie...." onchange="inputValue()">
+    <div id="Container"></div>
+</body>
+<script src="./TvApi.js"></script>
+</html>
