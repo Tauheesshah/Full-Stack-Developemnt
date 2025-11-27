@@ -17,7 +17,7 @@
 
 <script>
 
-let store=[];
+let store = JSON.parse(localStorage.getItem('todoDatabase'))|| [];
 window.onload = function () {
      checkAndRender(); 
 };
@@ -25,9 +25,12 @@ const checkAndRender = () => {
     const mainDiv = document.getElementById("todo_list");
     mainDiv.innerHTML = ''; 
 
-    if (store.length === 0) {
+    console.log(store.length)
+
+    if (store.length == 0) {
         mainDiv.innerText = "Data is not there";
     } else {
+        localStorage.setItem("todoDatabase",JSON.stringify(store))
         renderOnUI(store);
     }
 };
@@ -46,10 +49,11 @@ const addTodo = ()=>{
         isEdit:false,
         isCompleted:false,
     };
-
     store.push(todoDetails);
     renderOnUI(store);
     todoInput.value = '';
+    checkAndRender();
+     
 };
 
 const renderOnUI = (data) =>{
@@ -83,7 +87,7 @@ const renderOnUI = (data) =>{
             let deleteStore=data.filter((dl)=>dl.id !== el.id)
             store=deleteStore;
             renderOnUI(store);
-             checkAndRender();
+            checkAndRender();
         })
 
         btn_edit.addEventListener('click',()=>{
@@ -103,11 +107,15 @@ const renderOnUI = (data) =>{
             btn.style.display="block"; 
             const todoInput = document.getElementById("todo");
             const newtext = todoInput.value.trim()
+            
             if (!newtext) {
                 alert("Todo cannot be empty!");
                 return;
             }
             store=data.map((es)=>es.id===el.id ?{...es,textTodo:newtext,isEdit:false}:es)
+            checkAndRender();
+            //OR
+            // localStorage.setItem("todoDatabase", JSON.stringify(store));
             todoInput.value='';
             renderOnUI(store);
         })
