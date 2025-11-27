@@ -1,0 +1,113 @@
+
+    body {
+        font-family: Arial, sans-serif;
+        background: #f4f6f9;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 40px;
+        margin: 0;
+    }
+
+    h1 {
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    /* Input and button section */
+    div:first-of-type {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+
+    input#todo {
+        width: 300px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    button {
+        padding: 10px 15px;
+        border: none;
+        background-color: #4CAF50; /* Green */
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.3s;
+        font-size: 14px;
+    }
+
+    button:hover {
+        background-color: #45a049;
+    }
+
+    /* Todo list styling */
+    #todo_list {
+        width: 500px;
+        background: white;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        min-height: 50px;
+    }
+
+    /* Each todo item */
+    #todo_list > div {
+        background: #f9f9f9;
+        padding: 12px;
+        margin-bottom: 10px;
+        border-radius: 6px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        transition: background 0.3s;
+    }
+
+    #todo_list > div:hover {
+        background: #f1f1f1;
+    }
+
+    /* Buttons inside each todo item */
+    #todo_list button {
+        background: #007bff;
+        font-size: 13px;
+        padding: 7px 10px;
+    }
+
+    #todo_list button:hover {
+        background: #0056b3;
+    }
+
+    /* Delete button red */
+    #todo_list button:nth-child(4) {
+        background: #e74c3c;
+    }
+
+    #todo_list button:nth-child(4):hover {
+        background: #c0392b;
+    }
+
+    /* Cancel button grey */
+    #todo_list button:nth-child(5) {
+        background: #888;
+    }
+
+    #todo_list button:nth-child(5):hover {
+        background: #555;
+    }
+
+    /* Save button green */
+    #todo_list button:nth-child(6) {
+        background: #28a745;
+    }
+
+    #todo_list button:nth-child(6):hover {
+        background: #218838;
+    }
+
+

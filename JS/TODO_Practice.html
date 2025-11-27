@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo Making</title>
+</head>
+<body>
+    <h1>JS Todo</h1>
+    <div>
+        <input id="todo" type="text" placeholder="please enter the task!!!">
+        <button onclick="addTodo()">Add</button>
+    </div>
+    <div id="todo_list"></div>
+</body>
+
+<script>
+let store=[];
+const addTodo = ()=>{
+    const valueText = document.getElementById("todo").value;
+    let todoDetails={
+        id:Date.now(),
+        textTodo:valueText,
+        isEdit:false,
+        isCompleted:false,
+    };
+
+    store.push(todoDetails);
+    renderOnUI(store);
+};
+
+const renderOnUI = (data) =>{
+    const mainDiv = document.getElementById("todo_list");
+    mainDiv.innerHTML='';
+
+    data.map((el)=>{
+        const checkbox=document.createElement("checkbox");
+        const text=document.createElement("h3");
+
+        const childDiv=document.createElement("div");
+
+        const btn_edit=document.createElement("button");
+        const btn_delete=document.createElement("button");
+
+        btn_edit.innerText="edit"
+        btn_delete.innerText="Delete"
+        text.innerText=el.textTodo;
+
+        btn_delete.addEventListener('click',()=>{
+            let deleteStore=data.filter((dl)=>dl.id !== el.id)
+            store=deleteStore;
+            renderOnUI(store);
+        })
+
+        btn_edit.addEventListener('click',()=>{
+            
+        })
+
+        childDiv.append(checkbox,text,btn_edit,btn_delete);
+        mainDiv.append(childDiv)
+    })
+}
+</script>
+</html>
+

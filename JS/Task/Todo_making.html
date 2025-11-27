@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo Making</title>
+    <link rel="stylesheet" href="./Todo_making.css">
+</head>
+<body>
+    <h1>JS Todo</h1>
+    <div>
+        <input id="todo" type="text" placeholder="please enter the task!!!">
+        <button id="addbtn" onclick="addTodo()">Add</button>
+    </div>
+    <div id="todo_list"></div>
+</body>
+
+<script>
+
+let store=[];
+window.onload = function () {
+     checkAndRender(); 
+};
+const checkAndRender = () => {
+    const mainDiv = document.getElementById("todo_list");
+    mainDiv.innerHTML = ''; 
+
+    if (store.length === 0) {
+        mainDiv.innerText = "Data is not there";
+    } else {
+        renderOnUI(store);
+    }
+};
+const addTodo = ()=>{
+    const todoInput = document.getElementById("todo");
+    const valueText = todoInput.value.trim();  
+    if (!valueText) {  
+        alert("Please enter a valid todo!");
+        todoInput.value = '';   
+        todoInput.focus();      
+        return; 
+    }
+    let todoDetails={
+        id:Date.now(),
+        textTodo:valueText,
+        isEdit:false,
+        isCompleted:false,
+    };
+
+    store.push(todoDetails);
+    renderOnUI(store);
+    todoInput.value = '';
+};
+
+const renderOnUI = (data) =>{
+    const mainDiv = document.getElementById("todo_list");
+    mainDiv.innerHTML='';
+    data.map((el)=>{
+
+        const id=document.createElement("p")
+        // const checkbox=document.createElement("checkbox");
+        const text=document.createElement("h3");
+
+        const childDiv=document.createElement("div");
+
+        const btn_edit=document.createElement("button");
+        const btn_delete=document.createElement("button");
+        const btn_cancel=document.createElement("button");
+        const btn_save=document.createElement("button");
+
+        id.innerText = `ID: ${el.id}`;
+        btn_edit.innerText="edit"
+        btn_delete.innerText="Delete"
+        btn_cancel.innerText="cancel"
+        btn_save.innerText="save"
+
+        btn_cancel.style.display = el.isEdit ? 'block' : 'none';
+        btn_save.style.display = el.isEdit ? 'block' : 'none';
+        btn_edit.style.display = el.isEdit ? 'none' : 'block';
+        btn_delete.style.display = el.isEdit ? 'none' : 'block';
+        text.innerText=el.textTodo;
+
+        btn_delete.addEventListener('click',()=>{
+            let deleteStore=data.filter((dl)=>dl.id !== el.id)
+            store=deleteStore;
+            renderOnUI(store);
+             checkAndRender();
+        })
+
+        btn_edit.addEventListener('click',()=>{
+            const btn=document.getElementById("addbtn");
+            btn.style.display="none"; 
+            const todoInput = document.getElementById("todo");
+            todoInput.value = el.textTodo;  
+           
+            let editStore = data.map((ed) => ed.id === el.id ? { ...ed, isEdit: !ed.isEdit } : ed);
+    
+            store=editStore;
+            renderOnUI(store);
+        })
+
+        btn_save.addEventListener('click',(ed)=>{
+            const btn=document.getElementById("addbtn");
+            btn.style.display="block"; 
+            const todoInput = document.getElementById("todo");
+            const newtext = todoInput.value.trim()
+            if (!newtext) {
+                alert("Todo cannot be empty!");
+                return;
+            }
+            store=data.map((es)=>es.id===el.id ?{...es,textTodo:newtext,isEdit:false}:es)
+            todoInput.value='';
+            renderOnUI(store);
+        })
+
+
+        btn_cancel.addEventListener('click',()=>{
+            const btn=document.getElementById("addbtn");
+            btn.style.display="block"; 
+            const todoInput = document.getElementById("todo");
+            todoInput.value = ''; 
+
+            store = data.map((ec) =>ec.id === el.id ? { ...ec, isEdit: false } : ec);
+            renderOnUI(store);
+            
+        })
+
+        childDiv.append(id,text,btn_edit,btn_delete,btn_cancel,btn_save);
+        mainDiv.append(childDiv)
+    })
+}
+</script>
+</html>
+
