@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Form Auto-Save</title>
+</head>
+<body>
+    <form oninput="addData()">
+        <lable>Name</lable>
+        <input  type="text" placeholder="Enter Your Name...." id="name" required>
+        <label>Email</label>
+        <input type="email" placeholder="Enter Your Email..." id="email" required>
+        <label>Message</label>
+        <input type="text" placeholder="Enter your Message" id="message" >
+    </form>
+
+    <div class="showData"></div>
+</body>
+<script>
+
+    const addData =()=>{
+       let name= document.getElementById("name").value
+       let email= document.getElementById("email").value
+       let message= document.getElementById("message").value
+
+       let obj={name,email,message}
+
+       localStorage.setItem("DATA",JSON.stringify(obj));
+
+
+       let DATA = JSON.parse(localStorage.getItem("DATA"));
+
+       
+        const mainDiv=document.createElement("div")
+        const nam=document.createElement("p")
+        const emai=document.createElement("p")
+        const mssg=document.createElement("p")
+
+        nam.innerText=`Name : ${DATA.name}`
+        emai.innerText=`Email: ${DATA.email}`
+        mssg.innerText=`Message:${DATA.message}`
+
+        mainDiv.append(nam,emai,mssg)
+        document.querySelector(".showData").append(mainDiv);
+   
+    }
+
+    //Retrieving From localstore on refresh
+
+
+    // window.onload=()=>{
+    //     let storedData=JSON.parse(localStorage.getItem("DATA"))
+       
+    //     if(storedData){
+    //         let container=document.createElement('Div');
+    //         container.innerHTML=`<p>Name :${storedData.name}<p/>
+    //             <p>Email:${storedData.email}</p>
+    //             <p>Message:${storedData.message}</p>
+    //         `
+    //         document.querySelector('.showData').append(container);
+    //     }
+        
+    // }
+
+   
+</script>
+</html>
+
+## 3️⃣ Multi-Form Auto-Save
+- Build a form with multiple fields (name, email, message).
+- Auto-save input values to LocalStorage as the user types.
+- Restore all fields from LocalStorage on refresh.

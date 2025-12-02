@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radio Form Validation</title>
+    <style>
+        #Message{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <form name="myRadio" onsubmit="myRadiofunc(event)">
+        <input type="radio" name="contant" value="office">Office</input>
+        <input type="radio" name="contant" value="home">Home</input>
+        <input type="radio" name="contant" value="vacation">Vacation</input>
+        <input type="radio" name="contant" value="adventure">Adventure</input>
+        <input type="radio" name="contant" value="School">School</input>
+        <p id="Message"></p>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+<script>
+    function myRadiofunc(e){
+        e.preventDefault()
+        console.log("function Invoked")
+        let radioData=document.myRadio.contant;
+        console.log(radioData)
+        for(let i=0;i<radioData.length;i++){
+            if(radioData[i].checked===true){
+                console.log(radioData[i].value)
+                document.getElementById('Message').innerHTML='';
+                alert(`you have selected ${radioData[i].value}`);
+                return true;
+            }   
+        }
+        document.getElementById('Message').innerHTML='Please Select Anyone'
+        return false;
+}
+</script>
+</html>
