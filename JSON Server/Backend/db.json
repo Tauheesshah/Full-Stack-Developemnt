@@ -1,0 +1,24 @@
+{
+    "user":[
+        {
+            "id":1,
+            "name":"Tauheed",
+            "age":21,
+            "pass":"tauheed"
+        }
+    ],
+    "todos":[
+        {
+            "id":1,
+            "text":"learn json",
+            "isEdit":false,
+            "isCompleted":false
+        },
+        {
+            "id":2,
+            "text":"learn react",
+            "isEdit":false,
+            "isCompleted":false
+        }
+    ]
+}

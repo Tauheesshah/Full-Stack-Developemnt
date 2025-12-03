@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Form Validations</title>
+</head>
+<body>
+    <form action="#" onsubmit="myForm(event)">
+        <div class="user_div">
+            <label>User</label>
+            <input autocomplete="off" id="user" name="user" type="text">
+            <span id="username_msg"></span>
+        </div>
+        <div class="pass_div">
+            <label>Password</label>
+            <input autocomplete="off" id="pass" name="pass" type="text">
+            <span id="pass_msg"></span>
+        </div>
+        <div class="confpass_div">
+            <label> confirm Password</label>
+            <input autocomplete="off" id="confpass" name="confpass" type="text">
+            <span id="confpass_msg"></span>
+        </div>
+        <div class="mobile">
+            <label> mobile Number</label>
+            <input autocomplete="off" id="mobile_number" name="mobile_number" type="text">
+            <span id="mobile_msg"></span>
+        </div>
+        <div class="email">
+            <label> email </label>
+            <input autocomplete="off" id="email" name="email" type="text">
+            <span id="email_msg"></span>
+        </div>
+        <input autocomplete="off" type="submit">
+    </form>
+</body>
+<script>
+    function myForm(e){
+        e.preventDefault()
+        let userName=document.getElementById("user").value
+        let Password=document.getElementById("pass").value
+        let confirmPassword=document.getElementById("confpass").value
+        let mobile=document.getElementById("mobile_number").value
+        let email=document.getElementById("email").value
+
+        // user Validation
+        if(userName==""){
+            document.getElementById("username_msg").innerHTML="** Please fill the username field";
+            document.getElementById('username_msg').style.color='red';
+            return false;
+        }else if(userName.length<=2 || userName.length>20){
+            document.getElementById("username_msg").innerHTML="** Please enter the lenght between 2 to 20";
+            document.getElementById('username_msg').style.color='red';
+            return false;
+        }else if(!isNaN(userName)){
+            document.getElementById("username_msg").innerHTML="** only character are allowed";
+            document.getElementById('username_msg').style.color='red';
+            return false;
+        }else{
+            document.getElementById('username_msg').innerHTML="";
+        }
+
+        //password Validation
+        if(Password==''){
+            document.getElementById("pass_msg").innerHTML="** Please Fill the Password Field";
+            document.getElementById('pass_msg').style.color='red';
+            return false;
+        }else if(Password.length<=5 ||Password.length>20){
+            document.getElementById("pass_msg").innerHTML="** Please enter the length between 5 to 20";
+            document.getElementById('pass_msg').style.color='red';
+            return false;
+        }else if(Password != confirmPassword){
+            document.getElementById("confpass_msg").innerHTML="** password Not Matched";
+            document.getElementById('confpass_msg').style.color='red';
+            return false;
+        }else{
+            document.getElementById('pass_msg').innerHTML='';
+        }
+
+        //ConfirmPass Validation
+        if(confirmPassword==''){
+            document.getElementById("confpass_msg").innerHTML="** please fill the Confirm Password";
+            document.getElementById('confpass_msg').style.color='red';
+            return false;
+        }else{
+            document.getElementById('confpass_msg').innerHTML=''
+        }
+
+        //mobileNumber Validation
+        if(mobile == ""){
+            document.getElementById("mobile_msg").innerHTML="** please fill the mobile  field"
+            document.getElementById('mobile_msg').style.color='red';
+            return false;
+        }else if(isNaN(mobile)){
+            document.getElementById("mobile_msg").innerHTML="** please enter a digit not a character"
+            document.getElementById('mobile_msg').style.color='red';
+            return false;
+        }else if(mobile.length!=10){
+            document.getElementById("mobile_msg").innerHTML="** Mobile number must be of 10 digit"
+            document.getElementById('mobile_msg').style.color='red';
+            return false;
+        }else{
+            document.getElementById("mobile_msg").innerHTML='';
+        }
+
+        //email validation
+        if(email==""){
+            document.getElementById("email_msg").innerHTML="** please fill the email field "
+            document.getElementById('email_msg').style.color='red';
+            return false;
+        }else if(email.indexOf("@")<=0){
+            document.getElementById("email_msg").innerHTML="** @ Invalid Position "
+            document.getElementById('email_msg').style.color='red';
+            return false;
+        }else if(email.charAt(email.length-4)!="."  &&  email.charAt(email.length-3)!="."){
+            document.getElementById("email_msg").innerHTML="** Invalid Email  "
+            document.getElementById('email_msg').style.color='red';
+            return false;
+        }else{
+            document.getElementById('email_msg').innerHTML='';
+        }
+    }
+</script>
+</html>
