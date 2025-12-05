@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+    <style>
+        /* Todo Container */
+h1 {
+    font-family: Arial, sans-serif;
+    margin-bottom: 10px;
+}
+
+/* Input + Add Button */
+#todoInput {
+    padding: 8px;
+    width: 250px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+}
+
+#addTodoBtn {
+    padding: 8px 14px;
+    margin-left: 5px;
+    border: none;
+    background-color: #2f8bfd;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#addTodoBtn:hover {
+    background-color: #1f6ed4;
+}
+
+/* Todo List */
+#todoList {
+    margin-top: 20px;
+    padding: 0;
+    list-style: none;
+    width: 350px;
+}
+
+#todoList li {
+    background: #f7f7f7;
+    padding: 10px;
+    margin-bottom: 8px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Text */
+#todoList li span {
+    font-size: 16px;
+}
+
+/* Buttons inside todo */
+#todoList button {
+    border: none;
+    padding: 5px 8px;
+    margin-left: 5px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+/* Complete Button */
+#todoList button:nth-child(2) {
+    background: #4caf50;
+    color: white;
+}
+
+#todoList button:nth-child(2):hover {
+    background: #3e8d41;
+}
+
+/* Delete Button */
+#todoList button:nth-child(3) {
+    background: #ff4d4d;
+    color: white;
+}
+
+#todoList button:nth-child(3):hover {
+    background: #e63b3b;
+}
+
+    </style>
+</head>
+<body>
+    <h1>Your Todos</h1>
+
+    <input type="text" id="todoInput" placeholder="Enter todo..." autocomplete="off">
+    <button id="addTodoBtn" onclick="addTodo()">Add Todo</button>
+    
+    <ul id="todoList"></ul>
+
+</body>
+<script>
+    function loadTodos() {
+    fetch("http://localhost:3001/todos")
+        .then(res => res.json())
+        .then(todos => {
+            let list = document.getElementById("todoList");
+            list.innerHTML = "";
+
+            todos.forEach(todo => {
+                let li = document.createElement("li");
+
+                li.innerHTML = `
+                    <span style="text-decoration:${todo.isCompleted ? 'line-through' : 'none'};">
+                        ${todo.text}
+                    </span>
+                    <button onclick="completeTodo(${todo.id}, ${todo.isCompleted})">✔</button>
+                    <button onclick="deleteTodo(${todo.id})">❌</button>
+                `;
+
+                list.appendChild(li);
+            });
+        });
+}
+
+function addTodo() {
+    let text = document.getElementById("todoInput").value.trim();
+    if (!text) return;
+
+    let newTodo = {
+        text: text,
+        isEdit: false,
+        isCompleted: false
+    };
+
+    fetch("http://localhost:3001/todos", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(newTodo)
+    })
+    .then(() => {
+        document.getElementById("todoInput").value = "";
+        loadTodos();
+    });
+}
+
+function completeTodo(id, currentStatus) {
+    fetch(`http://localhost:3001/todos/${id}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ isCompleted: !currentStatus })
+    })
+    .then(() => loadTodos());
+}
+
+function deleteTodo(id) {
+    fetch(`http://localhost:3001/todos/${id}`, {
+        method: "DELETE"
+    })
+    .then(() => loadTodos());
+}
+
+
+loadTodos(); // show todos on page load
+
+</script>
+</html>

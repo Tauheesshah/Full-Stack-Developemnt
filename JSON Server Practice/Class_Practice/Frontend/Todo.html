@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="fetchTodoDB()">
+
+    <h1>Crud todo with json-server</h1>
+
+    <div class="main_div">
+        <div class="input_div">
+            <input id="todos" placeholder="enter the todos" type="text">
+            <button type="button" onclick="myTodosAdd()" class="bg-primary">Add</button>
+        </div>
+
+        <div id="dataInfo"></div>
+    </div>
+    
+</body>
+<script src="./index.js"></script>
+</html>
