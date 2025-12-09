@@ -23,7 +23,6 @@ function myTodosAdd(){
         body:JSON.stringify(newTodos),
     })
     .then((res)=>console.log("this is from addTodo",res))
-    .then(()=>alert('data has Been send'))
     .catch((err)=>console.log("this is from addTodo",err))
     .finally(()=>console.log('DOne with api process'))
 
@@ -50,7 +49,12 @@ function UIrender(){
     select.innerText="Select All";
 
     const deselect=document.getElementById('DeSelectAll')
+    // deselect.style='display:none'
     deselect.innerText="De Select All";
+
+    const deleteAll=document.getElementById('deleteAll');
+    // deleteAll.style='display:none'
+    deleteAll.innerText='Delete All'
 
     data&&data.map((el)=>{
         const todoDiv=document.createElement('div');
@@ -69,10 +73,7 @@ function UIrender(){
         editBtn.innerText='edit'
         deleteBtn.innerText='delete'
 
-
-        select.addEventListener('click',async()=>{
-            await alert("called")
-        })
+        checkInput.classList.add('todoCheck'); // <--- Add class
 
         editBtn.addEventListener('click',async()=>{
             await fetch(`${API}/${el.id}`,{
@@ -90,6 +91,35 @@ function UIrender(){
                 headers:{
                     'Content-Type':'application/json'
                 }
+            })
+        })
+
+        select.addEventListener('click',async()=>{
+            let allcheck=document.querySelectorAll('.todoCheck')
+            allcheck.forEach(cb=>{
+                cb.checked=true
+            })
+            // deselect.style='display:block'
+            // deleteAll.style='display:block'
+        })
+
+        deselect.addEventListener('click',async()=>{
+            let allcheck=document.querySelectorAll('.todoCheck')
+            allcheck.forEach(cb=>{
+                cb.checked=false
+            })
+            // select.style='display:block'
+        })
+
+        deleteAll.addEventListener('click',()=>{
+            let checked=document.querySelectorAll('.todoCheck:checked')
+            console.log(checked)
+            checked.forEach(cd=>{
+                    fetch(`${API}/${el.id}`, {
+                    method: 'DELETE'
+                }).then(()=>{
+                    UIrender()
+                })
             })
         })
 

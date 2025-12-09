@@ -16,19 +16,19 @@
   "todos": [
     {
       "id": "1",
+      "text": "Tauheed",
+      "isEdit": false,
+      "isCompleted": false
+    },
+    {
+      "id": "2",
       "text": "Vedant",
       "isEdit": false,
       "isCompleted": false
     },
     {
       "id": "3",
-      "text": "Tauheed",
-      "isEdit": false,
-      "isCompleted": false
-    },
-    {
-      "id": "3",
-      "text": "sir",
+      "text": "Shah",
       "isEdit": false,
       "isCompleted": false
     }
