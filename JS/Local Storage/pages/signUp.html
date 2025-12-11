@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUP</title>
+    <link rel="stylesheet" href="../css/signup.css">
+</head>
+<body>
+    <div class="mainContainer">
+        <div class="signupPage">
+            <h1>SignUp</h1>
+            <label>Username</label>
+            <input type="text" placeholder="Enter your Name...." name="signUsername" id="signUsername" autocomplete="off">
+            <label>Age</label>
+            <input type="number" placeholder="Enter your Age....." name="signAge" id="SignAge" autocomplete="off">
+            <label>Password</label>
+            <input type="password" placeholder="Enter your password" name="signPassword" id="signPassword" autocomplete="off">
+            <button class="button" type="button" onclick="signUp()">Submit</button>
+
+            <p id="signupError" style="color:red;"></p>
+            <p id="signupSuccess" style="color:green;"></p>
+        </div>
+    </div>
+</body>
+<script src="../JS/signUp.js"></script>
+</html>
