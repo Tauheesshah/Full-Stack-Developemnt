@@ -4,22 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        .myTodo_div{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 50px;
-        }
-    </style>
+    <link rel="stylesheet" href="./index.css">
 </head>
 <body onload="fetchTodoDB()">
 
-    <h1>Crud todo with json-server</h1>
+    <h1>TODO APP</h1>
 
     <div class="main_div">
         <div class="input_div">
-            <input id="todos" placeholder="enter the todos" type="text">
+            <input id="todos" placeholder="Enter the Todos...." type="text">
             <button type="button" onclick="myTodosAdd()" class="bg-primary">Add</button>
             <button type="button" id="selectAll" class="bg-primary"></button>
             <button type="button" id="DeSelectAll" class="bg-primary"></button>

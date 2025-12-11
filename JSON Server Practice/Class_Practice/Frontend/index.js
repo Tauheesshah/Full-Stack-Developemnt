@@ -17,7 +17,7 @@ function myTodosAdd(){
 
     fetch(API,{
         method:'POST',
-        header:{
+        headers:{
             'Content-type':'application/json',
         },
         body:JSON.stringify(newTodos),
@@ -33,8 +33,6 @@ function fetchTodoDB(){
     .then((res)=>res.json())
     .then((res)=>(data=[...res],UIrender()))
     .catch((err)=>console.log(err))
-    
-
 }
 
 function UIrender(){
@@ -49,11 +47,11 @@ function UIrender(){
     select.innerText="Select All";
 
     const deselect=document.getElementById('DeSelectAll')
-    // deselect.style='display:none'
+    deselect.style='display:none'
     deselect.innerText="De Select All";
 
     const deleteAll=document.getElementById('deleteAll');
-    // deleteAll.style='display:none'
+    deleteAll.style='display:none'
     deleteAll.innerText='Delete All'
 
     data&&data.map((el)=>{
@@ -63,27 +61,90 @@ function UIrender(){
         const statusTodo=document.createElement('h3')
         const editBtn=document.createElement('button')
         const deleteBtn=document.createElement('button')
+        const savebtn=document.createElement('button')
+        const canclebtn=document.createElement('button')
         const id=document.createElement('p')
         
         id.innerText=el.id;
         todoDiv.className="myTodo_div";
         checkInput.type='checkbox'
+        checkInput.dataset.id = el.id; // <-- IMPORTANT
         headingText.innerText=el.text;
-        statusTodo.innerText=el.isEdit ? 'true':'false';
+        statusTodo.innerText = el.isCompleted ? 'Completed' : 'Active';
+        if (el.isCompleted) {
+            headingText.classList.add("completed");
+            statusTodo.classList.remove("active");
+            statusTodo.classList.add("completedStatus");
+            statusTodo.innerText = "Completed";
+        } else {
+            headingText.classList.remove("completed");
+            statusTodo.classList.remove("completedStatus");
+            statusTodo.classList.add("active");
+            statusTodo.innerText = "Active";
+        }
+
         editBtn.innerText='edit'
         deleteBtn.innerText='delete'
+        savebtn.innerText='save'
+        canclebtn.innerText='Cancle'
+        savebtn.style.display = "none";
+        canclebtn.style.display = "none";
+
 
         checkInput.classList.add('todoCheck'); // <--- Add class
 
         editBtn.addEventListener('click',async()=>{
-            await fetch(`${API}/${el.id}`,{
-                method:'PATCH',
-                headers:{
-                    'Content-Type':'application/json',
-                },
-                body:JSON.stringify({isEdit:!el.isEdit}),
-            })
+
+            const input = document.createElement("input");
+            input.type = "text";
+            input.value = el.text;
+            todoDiv.replaceChild(input, headingText);
+
+                // Show save & cancel buttons and hide others
+                savebtn.style.display = "inline-block";
+                canclebtn.style.display = "inline-block";
+                editBtn.style.display = "none";
+                deleteBtn.style.display = "none";
+                savebtn.onclick = async () => {
+                let updatedText = input.value.trim();
+
+                if(updatedText === "") return;
+
+                await fetch(`${API}/${el.id}`, {
+                    method: "PATCH",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ text: updatedText,isCompleted:false })
+                });
+            
+                headingText.innerText = updatedText;
+                todoDiv.replaceChild(headingText, input);
+            
+                cancelEditUI();
+                fetchTodoDB();
+            };
+            canclebtn.onclick = () => {
+                todoDiv.replaceChild(headingText, input);
+                cancelEditUI();
+            };
+            function cancelEditUI() {
+                savebtn.style.display = "none";
+                canclebtn.style.display = "none";
+                editBtn.style.display = "inline-block";
+                deleteBtn.style.display = "inline-block";
+            }
         })
+
+        headingText.addEventListener('click', async () => {
+            let newStatus = !el.isCompleted;
+
+            await fetch(`${API}/${el.id}`, {
+                method: "PATCH",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ isCompleted: newStatus })
+            });
+
+            fetchTodoDB();
+        });
 
         deleteBtn.addEventListener('click',async()=>{
             await fetch(`${API}/${el.id}`,{
@@ -99,8 +160,9 @@ function UIrender(){
             allcheck.forEach(cb=>{
                 cb.checked=true
             })
-            // deselect.style='display:block'
-            // deleteAll.style='display:block'
+            select.style='display:none'
+            deselect.style='display:inline-block'
+            deleteAll.style='display:inline-block'
         })
 
         deselect.addEventListener('click',async()=>{
@@ -108,22 +170,27 @@ function UIrender(){
             allcheck.forEach(cb=>{
                 cb.checked=false
             })
-            // select.style='display:block'
+        select.style='display:inline-block'
+        deselect.style='display:none'
+        deleteAll.style='display:none'
         })
 
-        deleteAll.addEventListener('click',()=>{
-            let checked=document.querySelectorAll('.todoCheck:checked')
-            console.log(checked)
-            checked.forEach(cd=>{
-                    fetch(`${API}/${el.id}`, {
-                    method: 'DELETE'
-                }).then(()=>{
-                    UIrender()
-                })
-            })
-        })
+        deleteAll.addEventListener('click',async()=>{
+            let checkedBoxes=document.querySelectorAll('.todoCheck:checked')
+            if (checkedBoxes.length === 0) return;
 
-        todoDiv.append(id,checkInput,headingText,editBtn,deleteBtn,statusTodo)
+            for (let cb of checkedBoxes) {
+            let id = cb.dataset.id;
+
+            await fetch(`${API}/${id}`, {
+            method: 'DELETE'
+        })
+        }
+        select.style='display:inline-block'
+        fetchTodoDB();
+    })
+
+        todoDiv.append(checkInput,id,headingText,editBtn,savebtn,canclebtn,deleteBtn,statusTodo)
         mainContainer.append(todoDiv)
     })
 
