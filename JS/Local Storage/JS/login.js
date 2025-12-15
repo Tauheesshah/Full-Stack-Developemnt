@@ -39,9 +39,10 @@ const login = () => {
 
     sessionStorage.setItem('token', JSON.stringify(token()));
 
-    setTimeout(() => {
-      alert('token has been stored in session storage');
-    }, 1000);
+    // setTimeout(() => {
+    //   alert('token has been stored in session storage');
+    // }, 1000);
+    window.location='../index.html'
   }
   else{
      alert("user coundn't found")
