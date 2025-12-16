@@ -10,29 +10,20 @@
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <nav>
-        <div class="logo">
-            <img src="https://fakestoreapi.com/icons/logo.png" height="60px" width="60px" alt="logo">
-        </div>
-
-        <ul>
-            <li>Home</li>
-            <li>Products</li>
-            <li>Contact</li>
-        </ul>
-
-        <ul>
-            <li onclick=""><i class="bi bi-cart"></i></li>
-            <li onclick="window.location='./pages/login.html'">Login</li>
-            <li onclick="window.location='pages/signUp.html'">SignUp</li>
-        </ul>
-    </nav>
+    <nav id="navbar"></nav>
 
     <h1>Product List</h1>
     
     <div id="mainData"></div>
 
-    <footer>Tauheed | Hey..</footer>
+    <footer id="footer"></footer>
 </body>
 <script src="./index.js"></script>
+<script type="module">
+    import {Navbar} from './Components/Navbar.js'
+    document.querySelector("#navbar").innerHTML=Navbar()
+
+    import {Footer} from './Components/footer.js'
+    document.querySelector('#footer').innerHTML=Footer()
+</script>
 </html>

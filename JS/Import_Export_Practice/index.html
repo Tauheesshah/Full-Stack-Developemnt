@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> Import Export in Console</h1>
+</body>
+<script type="module">
+    // import sumOfTwoNumber from './index.js'
+    // console.log(sumOfTwoNumber(1,2))
+
+    import xyz from './index.js'
+    console.log('🚀 ~ xyz:', xyz);
+    const { sumOfTwoNumber, subOfTwoNumber } = xyz;
+    console.log('🚀 ~ xyz:sub', xyz.subOfTwoNumber(2, 5));
+    console.log('🚀 ~ sumOfTwoNumber:hello index', sumOfTwoNumber(2, 5));
+</script>
+</html>

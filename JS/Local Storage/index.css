@@ -1,3 +1,9 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 #mainData {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -33,6 +39,7 @@ nav ul {
     list-style: none;
     display: flex;
     gap: 25px;
+    margin: 0px;
 }
 
 nav ul li {
@@ -92,14 +99,29 @@ footer {
 h3{
     font-size: 1rem;
     font-weight:600;
+    margin-bottom: 20px;
 }
 #mainData > div{
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 button{
     border: 1px solid black;
     padding: 4px;
     border-radius: 10px;
     background-color: lightblue;
+    width: 130px;
 }
+.cart-badge {
+    position: absolute;
+    top: -6px;
+    right: -10px;
+    background: red;
+    color: white;
+    font-size: 12px;
+    padding: 2px 6px;
+    border-radius: 50%;
+    font-weight: bold;
+}
+
