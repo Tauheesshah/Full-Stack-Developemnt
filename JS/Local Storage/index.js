@@ -109,6 +109,7 @@ function dataAppend(value){
         mainDiv.append(childDiv)
     });
 }
+ 
 function updateCartCount() {
     const cart = JSON.parse(localStorage.getItem("cartData")) || [];
 

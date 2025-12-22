@@ -25,5 +25,22 @@
 
     import {Footer} from './Components/footer.js'
     document.querySelector('#footer').innerHTML=Footer()
+
+    document.getElementById('home').addEventListener('click',()=>{
+        const location=window.location.pathname;
+        console.log(location)
+        const value=location.split("/").filter(el=>el==="JS")
+        console.log(value)
+        window.location.pathname=`${value[0]}/local storage/pages/home.html`
+    })
+    document.getElementById('product').addEventListener('click',()=>{
+        alert("i am already here")
+    }) 
+    document.getElementById('contact').addEventListener('click',()=>{
+        const location=window.location.pathname;
+        const value=location.split("/").filter(el=>el==="JS")
+        window.location.pathname=`${value[0]}/local storage/pages/contact.html`
+    }) 
+
 </script>
 </html>

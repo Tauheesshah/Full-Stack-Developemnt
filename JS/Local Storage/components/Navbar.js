@@ -4,9 +4,9 @@ export const Navbar=()=>{
             <img src="https://fakestoreapi.com/icons/logo.png" height="60px" width="60px" alt="logo">
     </div>
     <ul>
-        <li>Home</li>
-        <li>Products</li>
-        <li>Contact</li>
+        <li id="home" >Home</li>
+        <li id="product">Products</li>
+        <li id="contact">Contact</li>
     </ul>
     <ul>
         <li onclick="window.location='./pages/cart.html'" style="position:relative; cursor:pointer;">
