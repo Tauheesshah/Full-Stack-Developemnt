@@ -85,13 +85,12 @@ tbody td:last-child {
 .cart-container {
     display: flex;
     gap: 20px;
+    justify-content: space-around;
 }
 
-/* Keep table wider */
-.cart-table {
-    width: 70%;
+td > button {
+    width: 46px
 }
-
 /* Total box */
 .total-box {
     width: 30%;
@@ -134,15 +133,18 @@ tbody td:last-child {
 .checkout-btn:hover {
     background-color: #157347;
 }
-
-    </style>
+.text-center {
+    text-align: center !important;
+    width: 113%;
+}
+</style>
     <link rel="stylesheet" href="../index.css">
 </head>
 
 <body onload="UI_Cart()">
 <nav id="navbar"></nav>
 <h1>Cart Details</h1>
-<div class="cart-container">
+<!-- <div class="cart-container">
     <table>
         <thead>
             <tr>
@@ -170,14 +172,17 @@ tbody td:last-child {
         <button class="checkout-btn">Checkout</button>
     </div>
 
-</div>
+</div> -->
+
+
+  <div id="cart-root"></div>
 
 <footer id="footer"></footer>
 </body>
-<script>
+<!-- <script>
     let getCart = JSON.parse(localStorage.getItem("cartData")) || [];
     const GST_Rate=0.18;
-
+    
     function UI_Cart() {
         const tbody = document.querySelector('#cartData');
         tbody.innerHTML = "";
@@ -224,12 +229,135 @@ function changeQty(index,value){
     }
     UI_Cart();
 }
-</script>
-<script type="module">
-    import {Navbar} from '../Components/Navbar.js'
-    document.querySelector("#navbar").innerHTML=Navbar()
+</script> -->
+<script>
+let getCart = JSON.parse(localStorage.getItem("cartData")) || [];
+const GST_RATE = 0.18;
 
+
+
+
+function UI_Cart() {
+    const root = document.getElementById("cart-root");
+    root.innerHTML = "";
+
+    if (getCart.length === 0) {
+        root.innerHTML = `<h4 class="text-center">Your cart is empty</h4>`;
+        return;
+    }
+
+    let subTotal = 0;
+
+    /* ---------- TABLE ---------- */
+    const table = document.createElement("table");
+    table.className = "table table-bordered text-center";
+
+    table.innerHTML = `
+        <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Image</th>
+                <th>Title</th>
+                <th>Category</th>
+                <th>Qty</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    `;
+
+    const tbody = table.querySelector("tbody");
+
+    getCart.forEach((el, index) => {
+        el.qty = el.qty || 1;
+        const itemTotal = el.qty * el.price;
+        subTotal += itemTotal;
+
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+            <td>${el.id}</td>
+            <td><img src="${el.image}" width="60"></td>
+            <td>${el.title}</td>
+            <td>${el.category}</td>
+            <td>
+                <button onclick="changeQty(${index},1)" class="btn btn-sm btn-secondary">+</button>
+                <strong>${el.qty}</strong>
+                <button onclick="changeQty(${index},-1)" class="btn btn-sm btn-secondary">−</button>
+            </td>
+            <td>₹ ${itemTotal.toFixed(2)}</td>
+        `;
+        tbody.appendChild(tr);
+    });
+
+    /* ---------- TOTAL BOX ---------- */
+    const gstAmount = subTotal * GST_RATE;
+    const grandTotal = subTotal + gstAmount;
+
+    const totalBox = document.createElement("div");
+    totalBox.className = "total-box";
+
+    totalBox.innerHTML = `
+        <h4>Price Details</h4>
+        <hr>
+        <p>Subtotal <span>₹ ${subTotal.toFixed(2)}</span></p>
+        <p>GST (18%) <span>₹ ${gstAmount.toFixed(2)}</span></p>
+        <hr>
+        <h5>Total <span>₹ ${grandTotal.toFixed(2)}</span></h5>
+        <button class="checkout-btn">Checkout</button>
+    `;
+
+    /* ---------- LAYOUT ---------- */
+    const wrapper = document.createElement("div");
+    wrapper.className = "cart-container";
+
+    const tableWrap = document.createElement("div");
+    tableWrap.className = "cart-table";
+    tableWrap.appendChild(table);
+
+    wrapper.append(tableWrap, totalBox);
+    root.appendChild(wrapper);
+
+    localStorage.setItem("cartData", JSON.stringify(getCart));
+}
+
+function changeQty(index, value) {
+    getCart[index].qty += value;
+    if (getCart[index].qty <= 0) {
+        getCart.splice(index, 1);
+    }
+    UI_Cart();
+}
+</script>
+
+<script type="module">
+    import {Navbar,renderAuthUI} from '../Components/Navbar.js'
+    document.querySelector("#navbar").innerHTML=Navbar()
+    renderAuthUI()
     import {Footer} from '../Components/footer.js'
     document.querySelector('#footer').innerHTML=Footer()
+
+    
+    function updateCartCount() {
+        const cart = JSON.parse(localStorage.getItem("cartData")) || [];
+    
+        let totalQty = 0;
+        cart.forEach(item => {
+            totalQty += Number(item.qty) || 0;
+        });
+    
+        const badge = document.getElementById("cartCount");
+        if (!badge) return;
+    
+        badge.innerText = totalQty;
+        badge.style.display = totalQty > 0 ? "inline-block" : "none";
+    }
+    
+    // 🔥 IMPORTANT: run AFTER navbar is loaded
+    window.addEventListener("DOMContentLoaded", () => {
+        updateCartCount();
+    });
+    
+    // 🔥 Sync if cart updates in another page/tab
+    window.addEventListener("storage", updateCartCount);
 </script>
 </html>

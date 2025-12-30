@@ -4,8 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../index.css">
 </head>
 <body>
+    <nav id="navbar"></nav>
+
+
     <h1>Contact</h1>
+        
+    <footer id="footer"></footer>
+    
 </body>
+<script type="module">
+    import {Navbar,renderAuthUI} from '../Components/Navbar.js'
+    document.querySelector("#navbar").innerHTML=Navbar()
+    renderAuthUI()
+    import {Footer} from '../Components/footer.js'
+    document.querySelector('#footer').innerHTML=Footer()
+
+    function updateCartCount() {
+        const cart = JSON.parse(localStorage.getItem("cartData")) || [];
+    
+        let totalQty = 0;
+        cart.forEach(item => {
+            totalQty += Number(item.qty) || 0;
+        });
+    
+        const badge = document.getElementById("cartCount");
+        if (!badge) return;
+    
+        badge.innerText = totalQty;
+        badge.style.display = totalQty > 0 ? "inline-block" : "none";
+    }
+    
+    // 🔥 IMPORTANT: run AFTER navbar is loaded
+    window.addEventListener("DOMContentLoaded", () => {
+        updateCartCount();
+    });
+    
+    // 🔥 Sync if cart updates in another page/tab
+    window.addEventListener("storage", updateCartCount);
+</script>
 </html>
