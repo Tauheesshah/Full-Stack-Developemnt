@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+    <link rel="stylesheet" href="TodoApp.css">
+</head>
+<body>
+    <input id="inputText" type="text" placeholder="Add Todo">
+    <button onclick="add()">Add</button>
+    <div id="mainContainer"></div>
+</body>
+<script>
+    let ToDoData=JSON.parse(localStorage.getItem("todos")) || [];
+    let currentId = 1;
+
+    function saveToLocalStorage() {
+        localStorage.setItem("todos", JSON.stringify(ToDoData));
+    }
+
+    function add(){
+        let inputText=document.getElementById("inputText").value.trim()
+        if (!inputText) return;
+        let todoDetails={
+            id:currentId++,
+            checkbox:false,
+            textTodo:inputText,
+            isEdit:false,
+            isCompleted:false,
+        };
+        ToDoData.push(todoDetails)
+        saveToLocalStorage()
+        renderOnUI(ToDoData)
+
+        document.getElementById("inputText").value = "";
+    }
+
+const renderOnUI = (data) => {
+    const maindiv = document.getElementById("mainContainer");
+    maindiv.innerHTML = '';
+
+    data.forEach((el) => {
+        const childDiv = document.createElement("div");
+
+        const id = document.createElement("h4");
+        id.innerText = el.id;
+
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+
+        const text = document.createElement("h3");
+        text.innerText = el.textTodo;
+
+        const btn_edit = document.createElement("button");
+        btn_edit.innerText = "Edit";
+
+        const btn_delete = document.createElement("button");
+        btn_delete.innerText = "Delete";
+
+        childDiv.append(id, checkbox, text, btn_edit, btn_delete);
+        maindiv.append(childDiv);
+    });
+};
+
+</script>
+</html>

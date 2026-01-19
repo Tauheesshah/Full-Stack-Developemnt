@@ -125,3 +125,11 @@ button{
     font-weight: bold;
 }
 
+.category{
+    display: flow-root;
+}
+
+.category>option{
+    float: inline-end;
+}
+

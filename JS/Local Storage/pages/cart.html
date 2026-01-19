@@ -325,6 +325,7 @@ function changeQty(index, value) {
     if (getCart[index].qty <= 0) {
         getCart.splice(index, 1);
     }
+    localStorage.setItem("cartData", JSON.stringify(getCart));
     UI_Cart();
 }
 </script>

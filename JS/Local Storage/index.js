@@ -20,6 +20,43 @@ ApiCall()
 
 function dataAppend(value){
     const mainDiv =document.querySelector('#mainData');
+    const sortBy=document.createElement('select')
+    const filterBy=document.createElement('select')
+    const categoryBy=document.createElement('div')
+    
+    const optionSort1=document.createElement('option')
+    const optionSort2=document.createElement('option')
+    // const mainDiv=document.querySelector("#mainData");
+
+    optionSort1.value='high to low';
+    optionSort1.innerText='high to low';
+
+    optionSort2.value='low to high';
+    optionSort2.innerText='low to high';
+
+    sortBy.name='select_sorting'
+    categoryBy.className='category';
+
+    const optionfilterBy1=document.createElement('option')
+    const optionfilterBy2=document.createElement('option')
+    const optionfilterBy3=document.createElement('option')
+    const optionfilterBy4=document.createElement('option')
+
+    optionfilterBy1.value="men's clothing";
+    optionfilterBy1.innerText="men's clothing"
+
+    optionfilterBy2.value="Jwelery"
+    optionfilterBy2.innerText="Jwelery"
+
+    optionfilterBy3.value="electronics"
+    optionfilterBy3.innerText="electronics"
+
+    optionfilterBy4.value="women's clothing"
+    optionfilterBy4.innerText="women's clothing"
+
+    sortBy.append(optionSort1,optionSort2)
+    categoryBy.append(sortBy,filterBy);
+    document.body.insertBefore(categoryBy,mainDiv);
 
     value?.forEach((el) => {
         const childDiv=document.createElement('div');
