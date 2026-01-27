@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Json Server</title>
+</head>
+<body>
+   <form onsubmit="handleForm(event)"
+      style="display: flex; flex-direction: column; width: 40%; gap: 10px; justify-self: center;">
+
+    <label for="email">email</label>
+    <input id="email" type="email" placeholder="enter your email...">
+
+    <label for="pass">password</label>
+    <input id="pass" type="password" placeholder="enter your pass...">
+
+    <fieldset>
+        <legend>gender</legend>
+
+        <label for="male">male</label>
+        <input id="gender" type="radio" value="male">
+
+        <label for="female">female</label>
+        <input id="gender" type="radio" value="female">
+    </fieldset>
+
+    <label for="country">country</label>
+    <select name="country" id="country">
+        <option value="none">none</option>
+        <option value="india">india</option>
+        <option value="china">china</option>
+        <option value="afganistan">afganistan</option>
+    </select>
+
+    <div style="display: flex; justify-content: space-between;">
+        <label for="">please check befor you submit</label>
+        <input onchange="watchmanFunc()" id="watchman" type="checkbox">
+    </div>
+
+    <input id="btn" type="submit" value="submit">
+
+</body>
+<script src="../JS/index.js"></script>
+</html>

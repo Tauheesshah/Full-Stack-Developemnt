@@ -1,0 +1,16 @@
+{
+  "userData": [
+    {
+      "id": 1,
+      "name": "Shah",
+      "married": false
+    },
+    {
+      "email": "Tauheed@gmail.com",
+      "pass": "shah",
+      "country": "india",
+      "gender": "male",
+      "id": 2
+    }
+  ]
+}
