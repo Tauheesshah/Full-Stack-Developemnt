@@ -13,17 +13,20 @@ export const TodosInput = () => {
             text,
             isEdits:false,
             isCompleted:false,
+            isChecked:false,
         };
 
-
         setTodo((prev)=>[...prev,data]);
+        setText('')
     }
+
+
 
   return (
     <>
-      <input type='text' onChange={(e)=>setText(e.target.value)}/>
+      <input value={text} type='text' name='todo_input'  onChange={(e)=>setText(e.target.value)}/>
       <button onClick={handleAdd}>Add</button>
-      <Todos props={{todo}}/>
+      <Todos props={{todo,setTodo}}/>
     </>
   )
 }
