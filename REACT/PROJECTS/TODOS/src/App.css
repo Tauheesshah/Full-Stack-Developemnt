@@ -9,7 +9,7 @@
 
 /* ===== Page ===== */
 body {
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: whitesmoke;
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -24,7 +24,7 @@ body {
   width: 450px;
   padding: 25px;
   border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 10px 25px rgba(20, 20, 20, 0.15);
   width: 100%;
   margin-bottom: 21px;
 
