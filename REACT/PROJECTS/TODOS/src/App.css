@@ -81,8 +81,8 @@ body {
 .completed {
   opacity: 0.45;
   text-decoration: line-through;
-  pointer-events: none;
-  cursor: not-allowed;
+  /* pointer-events: none; */
+  /* cursor: not-allowed; */
 }
 
 

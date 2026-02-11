@@ -40,14 +40,14 @@ export const Todos = ({ props }) => {
   };
 
   const selectAll=()=>{
-     const updated  = todo.map(el => ({...el, isChecked: true
-  }));
-  setTodo(updated );
-  console.log(updated)
+    const updated  = todo.map(el => ({...el, isChecked: true}));
+    setTodo(updated );
+    console.log(updated)
   }
+
+
   const deselectAll = () => {
-    const updated = todo.map(el => ({...el,isChecked: false
-    }));
+    const updated = todo.map(el => ({...el,isChecked: false}));
     setTodo(updated);
     console.log(updated)
   };
@@ -58,6 +58,9 @@ export const Todos = ({ props }) => {
     setTodo(deleteItems);
   }
 
+  if (todo.length===0){
+    return<h1>NO DATA Found</h1>
+  }
   return (
     <>
     <div className='MainDiv'>
@@ -67,9 +70,8 @@ export const Todos = ({ props }) => {
       </button>
       <button onClick={DeleteAll}>Delete ALL</button>
     </div>
-      {/* {
-        todo && 
-      } */}
+     
+     <hr></hr>
 
       {todo.map((el) => {
         return (
