@@ -104,11 +104,11 @@ input[type="checkbox"] {
   cursor: pointer;
 }
 
-.todo-item button:nth-child(3) {
+.todo-item button:nth-child(4) {
   background: #ffc107;
 }
 
-.todo-item button:nth-child(4) {
+.todo-item button:nth-child(5) {
   background: #dc3545;
   color: white;
 }
@@ -131,6 +131,10 @@ h1{
 }
 h4{
   color: black;
+}
+h3{
+  color: black;
+  margin-top: 10px;
 }
 button{
     margin-right: 20px;

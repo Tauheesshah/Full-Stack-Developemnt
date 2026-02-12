@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 export const Todos = ({ props }) => {
   const [editText, setEditText] = useState('');
-
+  const [pinItems,setPinItems]= useState([])
   const { todo, setTodo } = props;
 
   const handleDelete = (id) => {
@@ -58,7 +58,19 @@ export const Todos = ({ props }) => {
     setTodo(deleteItems);
   }
 
-  if (todo.length===0){
+  const handlePinItems = (id)=>{
+    const pin_value = todo.filter((el)=>el.id===id)
+    setPinItems((prev)=>[...prev,...pin_value]);
+
+    const unPin_value = todo.filter((el)=>el.id!=id)
+    setTodo(unPin_value)
+  }
+
+
+
+
+
+  if (todo.length===0 && pinItems.length===0){
     return<h1>NO DATA Found</h1>
   }
   return (
@@ -70,22 +82,20 @@ export const Todos = ({ props }) => {
       </button>
       <button onClick={DeleteAll}>Delete ALL</button>
     </div>
-     
-     <hr></hr>
 
-      {todo.map((el) => {
-        return (
-          <div
+    <h3>Pin Data</h3>
+    {pinItems.map((el)=>{
+      return(
+        <div
             key={el.id}
             className={`todo-item ${el.isChecked ? "completed" : ""}`}
           >
-            {/* <input onClick={()=>Checked(el.id)} type="checkbox" /> */}
             <input
               type="checkbox"
               checked={el.isChecked }
               onChange={() => Checked(el.id)}
             />
-
+            
             {el.isEdit ? (
               <input
                 name="edit_items"
@@ -128,6 +138,69 @@ export const Todos = ({ props }) => {
                 </button>
               </>
             )}
+            <button onClick={()=> handlePinItems(el.id)}>UnPIN</button>
+          </div>
+      )
+    })}
+    
+     
+    <hr></hr>
+    <h3>UnPin Data</h3>
+      {todo.map((el,i) => {
+        return (
+          <div
+            key={el.id}
+            className={`todo-item ${el.isChecked ? "completed" : ""}`}
+          >
+            <input
+              type="checkbox"
+              checked={el.isChecked }
+              onChange={() => Checked(el.id)}
+            />
+          <h4>{i+1}</h4>
+            {el.isEdit ? (
+              <input
+                name="edit_items"
+                type="text"
+                defaultValue={el.text}
+                onChange={(e) => setEditText(e.target.value)}
+              />
+            ) : (
+              <h4>{el.text}</h4>
+            )}
+
+            {el.isEdit ? (
+              <>
+                <button
+                  onClick={() => handleCancel(el.id)}
+                  style={{ height: 'fit-content' }}
+                >
+                  cancel
+                </button>
+                <button
+                  onClick={() => handleConfirm(el.id)}
+                  style={{ height: 'fit-content' }}
+                >
+                  confirm
+                </button>
+              </>
+            ) : (
+              <>
+                <button
+                  onClick={() => handleEdits(el.id)}
+                  style={{ height: 'fit-content' }}
+                >
+                  edit
+                </button>
+                <button
+                  onClick={() => handleDelete(el.id)}
+                  style={{ height: 'fit-content' }}
+                >
+                  delete
+                </button>
+              </>
+            )}
+            <button onClick={()=> handlePinItems(el.id)}>PIN</button>
           </div>
         );
       })}
