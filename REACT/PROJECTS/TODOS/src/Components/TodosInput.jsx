@@ -13,6 +13,7 @@ export const TodosInput = () => {
             text,
             isEdits:false,
             isChecked:false,
+            isPinned:false,
         };
 
         setTodo((prev)=>[...prev,data]);

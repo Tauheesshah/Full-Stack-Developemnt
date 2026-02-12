@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 export const Todos = ({ props }) => {
   const [editText, setEditText] = useState('');
-  const [pinItems,setPinItems]= useState([])
+  // const [pinItems,setPinItems]= useState([])
   const { todo, setTodo } = props;
 
   const handleDelete = (id) => {
@@ -36,20 +36,17 @@ export const Todos = ({ props }) => {
     const updated = todo.map((el) =>
     el.id === id ? { ...el, isChecked: !el.isChecked } : el);
     setTodo(updated);
-    console.log(updated)
   };
 
   const selectAll=()=>{
     const updated  = todo.map(el => ({...el, isChecked: true}));
     setTodo(updated );
-    console.log(updated)
   }
 
 
   const deselectAll = () => {
     const updated = todo.map(el => ({...el,isChecked: false}));
     setTodo(updated);
-    console.log(updated)
   };
   const allChecked = todo.length > 0 && todo.every(el => el.isChecked);
 
@@ -59,18 +56,19 @@ export const Todos = ({ props }) => {
   }
 
   const handlePinItems = (id)=>{
-    const pin_value = todo.filter((el)=>el.id===id)
-    setPinItems((prev)=>[...prev,...pin_value]);
+    const pin_Data = todo.map((el)=>el.id===id ? {...el,isPinned:!el.isPinned} : el)
+    setTodo(pin_Data)
+    // setPinItems((prev)=>[...prev,...pin_value]);
 
-    const unPin_value = todo.filter((el)=>el.id!=id)
-    setTodo(unPin_value)
+    // const unPin_value = todo.filter((el)=>el.id!=id)
+    // setTodo(unPin_value)
   }
 
 
 
 
 
-  if (todo.length===0 && pinItems.length===0){
+  if (todo.length===0){
     return<h1>NO DATA Found</h1>
   }
   return (
@@ -84,7 +82,10 @@ export const Todos = ({ props }) => {
     </div>
 
     <h3>Pin Data</h3>
-    {pinItems.map((el)=>{
+
+    {todo
+      .filter(el => el.isPinned)
+      .map((el,i)=>{
       return(
         <div
             key={el.id}
@@ -95,7 +96,10 @@ export const Todos = ({ props }) => {
               checked={el.isChecked }
               onChange={() => Checked(el.id)}
             />
-            
+
+            {/* <h4>{el.id}</h4> */}
+            <h4>{i+1}</h4>
+
             {el.isEdit ? (
               <input
                 name="edit_items"
@@ -146,7 +150,9 @@ export const Todos = ({ props }) => {
      
     <hr></hr>
     <h3>UnPin Data</h3>
-      {todo.map((el,i) => {
+      {todo
+        .filter(el => !el.isPinned)
+        .map((el,i) => {
         return (
           <div
             key={el.id}
@@ -158,6 +164,7 @@ export const Todos = ({ props }) => {
               onChange={() => Checked(el.id)}
             />
           <h4>{i+1}</h4>
+          {/* <h4>{el.id}</h4> */}
             {el.isEdit ? (
               <input
                 name="edit_items"
