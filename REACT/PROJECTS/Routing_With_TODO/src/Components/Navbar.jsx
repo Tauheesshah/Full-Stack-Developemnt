@@ -1,13 +1,18 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import { AuthValContext } from '../Context/AuthContext'
 
 export const Navbar = () => {
+
+  const {setAuth}=React.useContext(AuthValContext)
 
   const data=[
     {to:'/',name:'home'},
     {to:'/about',name:'about'},
     {to:'/counter',name:'counter'},
     {to:'/todo',name:'todo'},
+    {to:'/user', name:'user'},
+    {to: '/Login', name :'Login'}
   ]
 
   return (
@@ -38,6 +43,7 @@ export const Navbar = () => {
           </NavLink>
         );
       })}
+      <button onClick={()=>setAuth(false)}>Logout</button>
     </div>
   )
 }
