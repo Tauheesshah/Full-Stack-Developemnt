@@ -32,7 +32,7 @@ export const Login = () => {
     axios
       .post('https://reqres.in/api/login', userValue, {
         headers: {
-          'x-api-key': 'reqres_d6053bc7a07245cab783ae8ef30f7666',
+          'x-api-key': 'reqres_c27db760fb6f4b06a48a548c02bf449f',
         },
       })
       .then((res) =>

@@ -25,6 +25,7 @@ If you are developing a production application, we recommend using TypeScript wi
 - Remove Token [logout Button]
 
 
+- Email : eve.holt@reqres.in
 
 
 - reqres_d6053bc7a07245cab783ae8ef30f7666 
