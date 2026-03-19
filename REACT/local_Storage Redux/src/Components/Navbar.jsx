@@ -4,13 +4,13 @@ export const Navbar = () => {
   const nav = [
     { path: '/', element: 'home' },
     { path: '/login', element: 'login' },
-    { path: '/single', element: 'singlePage' },
+    { path: '/SinglePage', element: 'SinglePage' },
   ];
   return (
     <>
       {nav &&
         nav.map((item, i) => {
-          return <Link key={i}>{item.element}</Link>;
+          return <Link key={i} to={item.path} >{item.element}</Link>;
         })}
     </>
   );

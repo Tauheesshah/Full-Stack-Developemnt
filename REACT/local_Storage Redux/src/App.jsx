@@ -7,8 +7,7 @@ import { Navbar } from './Components/Navbar'
 import { AllRoutes } from './Routes/AllRoutes'
 
 export function App() {
-  const [count, setCount] = useState(0)
-
+ 
   return (
     <>
       <Navbar/>

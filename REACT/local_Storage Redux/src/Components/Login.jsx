@@ -9,7 +9,7 @@ export const Login = () => {
 
   const value = useSelector((store) => store.isLoading);
 
-  const [userValue, setUserValue] = React.useState({
+  const [ userValue, setUserValue] = React.useState({
     email: '',
     password: '',
   });
