@@ -1,10 +1,13 @@
 import { combineReducers, legacy_createStore } from "redux";
 import {AuthReducer} from '../Redux/Auth/Reducer';
 import { TodoReducer } from "../Redux/todos/Reducer";
+import {Reducer as userReducer} from "../Redux/Api/Reducer"
+
 
 const rootTerminal= combineReducers({
     auth:AuthReducer,
-    todo: TodoReducer
+    todo: TodoReducer,
+    user:userReducer
 })
 
 const ownStore = legacy_createStore(rootTerminal, 
