@@ -25,6 +25,6 @@ If you are developing a production application, we recommend using TypeScript wi
 - Remove Token [logout Button]
 
 
-- 
+
 
 - reqres_d6053bc7a07245cab783ae8ef30f7666 

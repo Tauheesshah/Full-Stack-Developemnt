@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { LOGIN_FAILUER, LOGIN_REQUEST, LOGIN_SUCCESS } from '../Redux/Action';
+import { LOGIN_FAILUER, LOGIN_REQUEST, LOGIN_SUCCESS } from '../Redux/Auth/Action';
 
 import axios from 'axios';
 
@@ -32,7 +32,7 @@ export const Login = () => {
     axios
       .post('https://reqres.in/api/login', userValue, {
         headers: {
-          'x-api-key': 'reqres_c27db760fb6f4b06a48a548c02bf449f',
+          'x-api-key': 'reqres_d6053bc7a07245cab783ae8ef30f7666',
         },
       })
       .then((res) =>

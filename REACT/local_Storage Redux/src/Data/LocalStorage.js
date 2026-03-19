@@ -5,4 +5,8 @@ const saveData = (key, payload) => {
   return localStorage.setItem(key, JSON.stringify(payload));
 };
 
-export { loadData, saveData };
+const deleteToken = (key)=>{
+    return localStorage.removeItem(key)
+}
+
+export { loadData, saveData,deleteToken };
