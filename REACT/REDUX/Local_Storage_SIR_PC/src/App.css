@@ -1,0 +1,8 @@
+.navLink {
+  padding: 0.5rem 0.8rem;
+  border-radius: 0.7rem;
+  color: #000;
+  text-decoration: none;
+  text-transform: capitalize;
+  font-weight: bolder;
+}
