@@ -23,7 +23,7 @@ export function App() {
       id:"useremail",
     },
     {
-      type:"password",
+      type:"curent-password",
       name:"userPassword",
       placeholder:"enter your password.....",
       id:"userpassword",
@@ -46,8 +46,8 @@ export function App() {
   return (
     <>
       <Form data={formData}/>
-      <Button style={{padding:'0.5rem 2rem', background:'red'}} value={'Login'} />
-      <Button style={{padding:'0.5rem 2rem', background:'red'}} value={'signin'} />
+      {/* <Button style={{padding:'0.5rem 2rem', background:'red'}} value={'Login'} /> */}
+      {/* <Button style={{padding:'0.5rem 2rem', background:'red'}} value={'signin'} /> */}
 
     </>
   )
