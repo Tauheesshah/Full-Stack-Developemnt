@@ -20,6 +20,6 @@ export const Reducer = (oldstate = initialValue,{type,payload}) => {
     default:
         return oldstate;
   }
-}
+}   
 
  
