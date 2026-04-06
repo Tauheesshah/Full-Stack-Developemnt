@@ -17,6 +17,9 @@ export const InputBox = ({ lable, length, perBox }) => {
 
     setPinValue(newVal);
 
+    if(value && index < PinValue.lenght -1 ){
+      nodeRefData.current[index+1].focus()
+    }
     // nodeRefData.current[index + 1]?.focus();
   };
 
@@ -39,7 +42,7 @@ export const InputBox = ({ lable, length, perBox }) => {
               key={i + 1}
               max={perBox}
               handleChangeEvent={(e) => handleChange(e, i)}
-              nodeRefData={(node) => (nodeRefData.current[i] = node)}
+              ref={(node) => (nodeRefData.current[i] = node)}
             />
           );
         })}

@@ -1,0 +1,45 @@
+/* Reset */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Main layout */
+.app {
+  display: flex;
+}
+
+/* Sidebar */
+.Left_Side_Nav {
+  width: 250px;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: #f5f6fa;
+}
+
+/* Right section */
+.main {
+  margin-left: 230px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0px 20px;
+}
+
+/* Navbar */
+.Top_Navbar {
+  height: 60px;
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 100;
+}
+
+/* Content */
+.page-content {
+  padding: 20px;
+  background: #f5f6fa;
+  /* min-height: calc(100vh - 60px); */
+}

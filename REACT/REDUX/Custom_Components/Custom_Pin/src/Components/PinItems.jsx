@@ -15,7 +15,8 @@ export const PinItems = React.forwardRef(
           break;
 
         default:
-          handleChangeEvent(e);
+          handleChangeEvent(e.target.value);
+          break;
       }
     };
 
@@ -32,7 +33,7 @@ export const PinItems = React.forwardRef(
           type="text"
           maxLength={max}
           onKeyUp={handlePintItems}
-          ref={nodeRefData}
+          ref={ref}   
         />
       </>
     );
