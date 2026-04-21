@@ -34,7 +34,7 @@ export const Top_Navbar = () => {
         {user ? (
             <div className="profile">
               <img src="https://i.pravatar.cc/40" alt="profile" />
-              <span className="username">👋 {user.username}</span>
+              <span className="username"> {user.username} 👋</span>
               {/* <button onClick={handleLogout} className="logout-btn">
                 Logout
               </button> */}
