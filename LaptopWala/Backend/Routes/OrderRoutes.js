@@ -5,9 +5,9 @@ import express from "express";
 import {
   CreateOrder,
   GetOrderHistory,
-} from "../controllers/OrderController.js";
+} from "../Controllers/OrderController.js";
 
-import Protect from "../middleware/AuthMiddleware.js";
+import Protect from "../Middleware/AuthMiddleware.js";
 
 const router = express.Router();
 

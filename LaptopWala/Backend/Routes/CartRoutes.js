@@ -4,9 +4,9 @@ import {
   GetUserCart,
   DecrementQuantity,
   RemoveCartItem
-} from "../controllers/CartController.js";
+} from "../Controllers/CartController.js";
 
-import Protect from "../middleware/AuthMiddleware.js";
+import Protect from "../Middleware/AuthMiddleware.js";
 
 const router = express.Router();
 

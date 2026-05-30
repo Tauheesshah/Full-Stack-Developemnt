@@ -1,5 +1,5 @@
 import User from "../Models/UserModel.js";
-import GenerateToken from "../utils/GenerateToken.js";
+import GenerateToken from "../Utils/GenerateToken.js";
 
 export const UpdateProfile = async (req, res) => {
 
