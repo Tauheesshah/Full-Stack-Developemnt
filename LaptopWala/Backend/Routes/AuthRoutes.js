@@ -3,7 +3,7 @@ import express from "express";
 import {
   RegisterUser,
   LoginUser,
-} from "../controllers/AuthController.js";
+} from "../Controllers/AuthController.js";
 import { UpdateProfile } from "../Controllers/UpdateProfileController.js";
 import Protect from "../Middleware/AuthMiddleware.js";
 
