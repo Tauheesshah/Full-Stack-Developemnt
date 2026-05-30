@@ -1,0 +1,301 @@
+/* =========================
+   CART PAGE LAYOUT
+========================= */
+
+.cart-page{
+  padding:20px;
+  background:#f6f7fb;
+  min-height:100vh;
+}
+
+.cart-title{
+  font-size:28px;
+  font-weight:700;
+  margin-bottom:20px;
+}
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+
+.cart-container{
+  display:flex;
+  gap:20px;
+  align-items:flex-start;
+}
+
+/* =========================
+   LEFT SIDE ITEMS
+========================= */
+
+.cart-items{
+  flex:2;
+}
+
+.cart-card{
+  display:flex;
+  gap:15px;
+
+  background:#fff;
+
+  padding:15px;
+  margin-bottom:15px;
+
+  border-radius:12px;
+
+  box-shadow:0 2px 10px rgba(0,0,0,0.05);
+}
+
+/* IMAGE */
+
+.cart-img{
+  width:120px;
+  height:100px;
+
+  object-fit:contain;
+  flex-shrink:0;
+}
+
+/* DETAILS */
+
+.cart-details{
+  width:100%;
+}
+
+.cart-details h3{
+  font-size:16px;
+  margin-bottom:5px;
+}
+
+.cart-details .brand{
+  font-size:13px;
+  color:gray;
+}
+
+.cart-details .price{
+  font-size:16px;
+  font-weight:700;
+  margin:6px 0;
+}
+
+/* =========================
+   QTY BOX
+========================= */
+
+.qty-box{
+  display:flex;
+  align-items:center;
+
+  border:1px solid #ddd;
+
+  width:120px;
+  height:36px;
+
+  border-radius:6px;
+
+  overflow:hidden;
+}
+
+.qty-box button{
+  width:35px;
+  height:100%;
+
+  border:none;
+
+  background:#f0f0f0;
+
+  cursor:pointer;
+
+  font-size:18px;
+}
+
+.qty-box span{
+  flex:1;
+  text-align:center;
+  font-weight:bold;
+}
+
+/* =========================
+   RIGHT SUMMARY
+========================= */
+
+.cart-summary{
+  flex:1;
+
+  background:#fff;
+
+  padding:20px;
+
+  border-radius:12px;
+
+  box-shadow:0 2px 10px rgba(0,0,0,0.05);
+
+  position:sticky;
+  top:20px;
+}
+
+.cart-summary h2{
+  margin-bottom:15px;
+}
+
+.summary-row{
+  display:flex;
+  justify-content:space-between;
+
+  margin-bottom:12px;
+
+  font-size:14px;
+}
+
+.summary-row.total{
+  font-weight:700;
+  font-size:16px;
+
+  border-top:1px solid #ddd;
+
+  padding-top:12px;
+  margin-top:12px;
+}
+
+/* =========================
+   CHECKOUT BUTTON
+========================= */
+
+.checkout-btn{
+  width:100%;
+
+  padding:13px;
+
+  background:#ff6b00;
+  color:#fff;
+
+  border:none;
+  border-radius:8px;
+
+  font-size:15px;
+  font-weight:700;
+
+  cursor:pointer;
+
+  margin-top:18px;
+}
+
+/* =========================================
+   RESPONSIVE - TABLET
+========================================= */
+
+@media(max-width:992px){
+
+  .cart-container{
+    flex-direction:column;
+  }
+
+  .cart-summary{
+    width:100%;
+    position:static;
+  }
+
+}
+
+/* =========================================
+   RESPONSIVE - MOBILE
+========================================= */
+
+@media(max-width:768px){
+
+  .cart-page{
+    padding:15px;
+  }
+
+  .cart-title{
+    font-size:24px;
+  }
+
+  .cart-card{
+    padding:12px;
+  }
+
+  .cart-img{
+    width:100px;
+    height:90px;
+  }
+
+  .cart-details h3{
+    font-size:15px;
+  }
+
+}
+
+/* =========================================
+   RESPONSIVE - 425 / 375 / 320
+========================================= */
+
+@media(max-width:425px){
+
+  .cart-page{
+    padding:10px;
+  }
+
+  .cart-title{
+    font-size:22px;
+    margin-bottom:15px;
+  }
+
+  .cart-card{
+    flex-direction:column;
+    align-items:center;
+
+    text-align:center;
+
+    padding:14px;
+  }
+
+  .cart-img{
+    width:140px;
+    height:120px;
+  }
+
+  .cart-details{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+
+  .cart-details h3{
+    font-size:15px;
+  }
+
+  .cart-details .brand{
+    font-size:12px;
+  }
+
+  .cart-details .price{
+    font-size:15px;
+  }
+
+  .qty-box{
+    margin-top:10px;
+  }
+
+  .cart-summary{
+    padding:15px;
+  }
+
+  .cart-summary h2{
+    font-size:20px;
+  }
+
+  .summary-row{
+    font-size:13px;
+  }
+
+  .summary-row.total{
+    font-size:15px;
+  }
+
+  .checkout-btn{
+    font-size:14px;
+    padding:12px;
+  }
+
+}

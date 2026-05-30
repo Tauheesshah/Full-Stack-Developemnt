@@ -24,7 +24,7 @@ app.post('/userCreateOne', async (req,res)=>{
 })
 
 //delete
-app.post('/userDeleteOne', async (req,res)=>{
+app.delete('/userDeleteOne', async (req,res)=>{
     let value = req.body
     let userData = await UserModel.deleteOne(value)
     console.log('userData',userData)

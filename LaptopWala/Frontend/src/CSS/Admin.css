@@ -1,0 +1,210 @@
+/* ===== GLOBAL ===== */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:sans-serif;
+}
+
+body{
+  background:#f1f5f9;
+}
+
+/* ===== ADMIN LAYOUT ===== */
+
+.admin-layout{
+  display:flex;
+  min-height:100vh;
+}
+
+/* ===== SIDEBAR ===== */
+
+.sidebar{
+  width:260px;
+  background:#0f172a;
+  color:white;
+  padding:30px 20px;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+
+  position:fixed;
+  left:0;
+  top:0;
+  height:100vh;
+}
+
+/* ===== LOGO ===== */
+
+.logo{
+  font-size:28px;
+  font-weight:bold;
+  margin-bottom:40px;
+}
+
+/* ===== LINKS ===== */
+
+.sidebar-links{
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+}
+
+.sidebar a{
+  color:black;
+  text-decoration:none;
+
+  display:flex;
+  align-items:center;
+  gap:12px;
+
+  padding:14px;
+  border-radius:12px;
+  margin: 12px;
+  transition:0.3s;
+}
+
+.sidebar a:hover{
+  background:#1e293b;
+  color: white;
+}
+
+/* ===== BUTTON ===== */
+
+.sidebar button{
+  border:none;
+  background:#ef4444;
+  color:white;
+
+  padding:14px;
+  border-radius:12px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+
+  cursor:pointer;
+  font-size:16px;
+}
+
+.sidebar button:hover{
+  background:#dc2626;
+}
+
+/* ===== MAIN CONTENT ===== */
+
+.admin-main{
+  /* margin-left:260px; */
+  width:100%;
+  padding:40px;
+}
+
+/* ===== DASHBOARD ===== */
+
+.dashboard-title{
+  font-size:35px;
+  margin-bottom:30px;
+  color:#0f172a;
+}
+
+/* ===== CARDS ===== */
+
+.dashboard-cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:25px;
+}
+
+.dashboard-card{
+  background:white;
+  padding:30px;
+  border-radius:20px;
+
+  box-shadow:0 5px 20px rgba(0,0,0,0.08);
+
+  transition:0.3s;
+}
+
+.dashboard-card:hover{
+  transform:translateY(-5px);
+}
+
+.dashboard-card h2{
+  font-size:20px;
+  color:#475569;
+  margin-bottom:15px;
+}
+
+.dashboard-card p{
+  font-size:32px;
+  font-weight:bold;
+  color:#2563eb;
+}
+
+/* ===== ADD PRODUCT PAGE ===== */
+
+.add-product-container{
+  background:white;
+  padding:30px;
+  border-radius:20px;
+}
+
+.product-form{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:20px;
+}
+
+.product-form input,
+.product-form textarea,
+.product-form select{
+  width:100%;
+  padding:15px;
+  border:1px solid #cbd5e1;
+  border-radius:10px;
+  outline:none;
+}
+
+.product-form textarea{
+  grid-column:span 2;
+  min-height:120px;
+}
+
+.product-form button{
+  grid-column:span 2;
+
+  background:#2563eb;
+  color:white;
+
+  border:none;
+  padding:15px;
+
+  border-radius:12px;
+  cursor:pointer;
+}
+
+/* ===== MOBILE ===== */
+
+@media(max-width:768px){
+
+  .sidebar{
+    width:220px;
+  }
+
+  .admin-main{
+    margin-left:220px;
+    padding:20px;
+  }
+
+  .product-form{
+    grid-template-columns:1fr;
+  }
+
+  .product-form textarea,
+  .product-form button{
+    grid-column:span 1;
+  }
+}

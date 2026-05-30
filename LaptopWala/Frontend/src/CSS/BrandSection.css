@@ -1,0 +1,47 @@
+.brand-section {
+  width: 100%;
+  padding: 50px 20px;
+  background: #fff;
+}
+
+.brand-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 35px;
+}
+
+/* Brand Grid */
+.brand-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+}
+
+/* Brand Card */
+.brand-card {
+  background: white;
+  border-radius: 18px;
+  height: 170px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid #ececec;
+}
+
+.brand-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  background: #ffffff;
+}
+
+/* Brand Images */
+.brand-image {
+  width: 256px;
+  height: 149px;
+  object-fit: contain;
+}

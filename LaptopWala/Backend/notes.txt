@@ -1,0 +1,222 @@
+
+
+------------------ MAIN TABLES -----------------
+
+Users
+Products
+Cart
+Wishlist
+Orders
+Payments
+Addresses
+Reviews
+
+
+
+
+
+
+
+
+
+
+
+Backend
+ ├── config
+ │    └── db.js
+ │
+ ├── controllers
+ │    ├── AuthController.js
+ │    ├── ProductController.js
+ │    ├── CartController.js
+ │    ├── WishlistController.js
+ │    ├── OrderController.js
+ │    ├── PaymentController.js
+ │    └── AdminController.js
+ │
+ ├── middleware
+ │    ├── AuthMiddleware.js
+ │    └── AdminMiddleware.js
+ │
+ ├── models
+ │    ├── UserModel.js
+ │    ├── ProductModel.js
+ │    ├── CartModel.js
+ │    ├── WishlistModel.js
+ │    ├── OrderModel.js
+ │    ├── PaymentModel.js
+ │    └── AddressModel.js
+ │
+ ├── routes
+ │    ├── AuthRoutes.js
+ │    ├── ProductRoutes.js
+ │    ├── CartRoutes.js
+ │    ├── WishlistRoutes.js
+ │    ├── OrderRoutes.js
+ │    ├── PaymentRoutes.js
+ │    └── AdminRoutes.js
+ │
+ ├── utils
+ │    ├── GenerateToken.js
+ │    ├── SendEmail.js
+ │    └── OTPGenerator.js
+ │
+ ├── .env
+ ├── package.json
+ └── Server.js
+
+
+
+
+
+
+ ----------USer FLOW -----------
+
+ User Signup/Login
+        ↓
+JWT Authentication
+        ↓
+User Session
+        ↓
+Cart Saved Per User
+        ↓
+Wishlist Saved Per User
+        ↓
+Orders Saved Per User
+        ↓
+Payment Saved Per Order
+        ↓
+Order Tracking
+
+
+
+---------------- ADMIN FLOW -------------------
+
+Admin Login (Hidden Route)
+        ↓
+Admin Dashboard
+        ↓
+Manage Products
+        ↓
+Manage Orders
+        ↓
+Manage Users
+        ↓
+Track Sales
+
+
+
+
+
+---------------- USER MODEL ------------------
+
+User
+ ├── _id
+ ├── name
+ ├── email
+ ├── password
+ ├── googleId
+ ├── isAdmin
+ ├── totalOrders
+ ├── totalSpent
+ ├── createdAt
+
+
+
+
+ --------------- PRODUCTS COLLECTION ------------------
+ Product
+ ├── _id
+ ├── title
+ ├── brand
+ ├── price
+ ├── stock
+ ├── images[]
+ ├── category
+   ---------------------MORE HERE WANT TO CUSTOMIZE ------------
+
+
+
+
+----------------------  Each cart belongs to ONE user.---------------------
+
+Cart
+ ├── userId
+ ├── products[]
+
+products
+ ├── productId
+ ├── quantity
+
+
+
+
+
+-------------------- WISHLIST COLLECTION -----------------------
+Wishlist
+ ├── userId
+ ├── products[]
+
+
+
+
+-------------------- ORDERS COLLECTION ---------------------
+Order
+ ├── userId
+ ├── items[]
+ ├── totalAmount
+ ├── paymentStatus
+ ├── orderStatus
+ ├── shippingAddress
+
+
+
+----------------------PAYMENTS COLLECTION ----------------------
+Payment
+ ├── userId
+ ├── orderId
+ ├── paymentId
+ ├── paymentMethod
+ ├── status
+
+
+User
+  ↓
+Cart
+  ↓
+Wishlist
+  ↓
+Orders
+  ↓
+Payments
+
+LINKED EVERY THING USING : mongoose.Schema.Types.ObjectId
+
+
+src
+│
+├── Admin
+│   │
+│   ├── AdminDashboard.jsx
+│   ├── AddProduct.jsx
+│   ├── ProductList.jsx
+│   ├── EditProduct.jsx
+│   ├── Orders.jsx
+│   ├── Users.jsx
+│   ├── Messages.jsx
+│   │
+│   └── Admin.css
+
+
+
+-------------------------------------------------
+| Sidebar        | Topbar                       |
+|                |                              |
+| Dashboard      | Total Products              |
+| Add Product    | Total Orders                |
+| Products       | Total Users                 |
+| Orders         | Revenue                     |
+| Users          |                              |
+| Messages       | Product Table               |
+| Logout         |                              |
+-------------------------------------------------

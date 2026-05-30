@@ -1,0 +1,69 @@
+/* =========================
+   ADD TO CART BUTTON (FIXED SIZE)
+========================= */
+
+.add-cart-btn {
+  width: 140px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  border: none;
+  border-radius: 6px;
+
+  background: #2563eb;
+  color: white;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+/* =========================
+   QTY BOX (SAME SIZE AS BUTTON)
+========================= */
+
+.qty-box {
+  width: 140px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border: 1px solid #ddd;
+  border-radius: 6px;
+
+  overflow: hidden;
+}
+
+/* BUTTON INSIDE QTY */
+.qty-box button {
+  width: 38px;
+  height: 100%;
+
+  border: none;
+  background: #f5f5f5;
+
+  font-size: 18px;
+  font-weight: bold;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* QUANTITY TEXT */
+.qty-box span {
+  flex: 1;
+  text-align: center;
+
+  font-size: 14px;
+  font-weight: 600;
+}
