@@ -4,7 +4,7 @@ import {
   AddToWishlist,
   GetWishlist,
   RemoveWishlist,
-} from "../Controllers/WishlistController.js";
+} from "../Controllers/WishListController.js";
 
 import Protect  from "../Middleware/AuthMiddleware.js";
 
