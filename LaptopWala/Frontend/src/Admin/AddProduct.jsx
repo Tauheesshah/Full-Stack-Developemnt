@@ -121,7 +121,8 @@ const AddProduct = () => {
       };
 
       const response = await axios.post(
-        "http://localhost:5000/api/products/create",
+
+        "https://laptopwala-backend-1.onrender.com/api/products/create",
         data,
         config
       );

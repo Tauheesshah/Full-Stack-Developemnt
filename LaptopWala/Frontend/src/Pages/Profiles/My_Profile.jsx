@@ -104,7 +104,7 @@ const MyProfile = () => {
     try {
 
       const { data } = await axios.put(
-        "http://localhost:5000/api/auth/profile",
+        "https://laptopwala-backend-1.onrender.com/api/auth/profile",
         {
           name,
           email,
@@ -151,7 +151,7 @@ const MyProfile = () => {
     try {
 
       await axios.delete(
-        "http://localhost:5000/api/users/delete",
+        "https://laptopwala-backend-1.onrender.com/api/users/delete",
         {
           headers: {
             Authorization:

@@ -15,7 +15,7 @@ const Products = () => {
       try {
 
         const { data } = await axios.get(
-          "http://localhost:5000/api/products"
+          "https://laptopwala-backend-1.onrender.com/api/products"
         );
 
         setProducts(data);

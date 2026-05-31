@@ -31,7 +31,7 @@ const ContactUs = () => {
       };
 
       const { data } = await axios.post(
-        "http://localhost:5000/api/contact/send",
+        "https://laptopwala-backend-1.onrender.com/api/contact/send",
         formData,
         config
       );

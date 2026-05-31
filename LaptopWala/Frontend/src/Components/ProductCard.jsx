@@ -23,7 +23,7 @@ const ProductCard = ({ product, setWishlist }) => {
     if (!user) return;
 
     const { data } = await axios.get(
-      "http://localhost:5000/api/cart/my-cart",
+      "https://laptopwala-backend-1.onrender.com/api/cart/my-cart",
       {
         headers: {
           Authorization: `Bearer ${user.token}`,
@@ -52,7 +52,7 @@ const ProductCard = ({ product, setWishlist }) => {
         if (!user) return;
 
         const { data } = await axios.get(
-          "http://localhost:5000/api/wishlist",
+          "https://laptopwala-backend-1.onrender.com/api/wishlist",
           {
             headers: {
               Authorization: `Bearer ${user.token}`,
@@ -85,7 +85,7 @@ const ProductCard = ({ product, setWishlist }) => {
 
     if (isWishlisted) {
       await axios.delete(
-        `http://localhost:5000/api/wishlist/${product._id}`,
+        `https://laptopwala-backend-1.onrender.com/api/wishlist/${product._id}`,
         {
           headers: {
             Authorization: `Bearer ${user.token}`,
@@ -98,7 +98,7 @@ const ProductCard = ({ product, setWishlist }) => {
 
     } else {
       await axios.post(
-        "http://localhost:5000/api/wishlist",
+        "https://laptopwala-backend-1.onrender.com/api/wishlist",
         { productId: product._id },
         {
           headers: {
@@ -119,7 +119,7 @@ const ProductCard = ({ product, setWishlist }) => {
     if (!user) return alert("Login required");
 
     await axios.post(
-      "http://localhost:5000/api/cart/add",
+      "https://laptopwala-backend-1.onrender.com/api/cart/add",
       { productId },
       {
         headers: {
@@ -138,7 +138,7 @@ const ProductCard = ({ product, setWishlist }) => {
     if (!user) return;
 
     await axios.put(
-      "http://localhost:5000/api/cart/decrement",
+      "https://laptopwala-backend-1.onrender.com/api/cart/decrement",
       { productId },
       {
         headers: {

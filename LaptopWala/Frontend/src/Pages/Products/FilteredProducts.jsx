@@ -37,7 +37,7 @@ const FilteredProducts = () => {
           if (type === "brand") {
 
             url =
-              `http://localhost:5000/api/products/brand/${value}`;
+              `https://laptopwala-backend-1.onrender.com/api/products/brand/${value}`;
           }
 
           // CATEGORY FILTER
@@ -45,7 +45,7 @@ const FilteredProducts = () => {
           if (type === "category") {
 
             url =
-              `http://localhost:5000/api/products/category/${value}`;
+              `https://laptopwala-backend-1.onrender.com/api/products/category/${value}`;
           }
 
           const { data } =

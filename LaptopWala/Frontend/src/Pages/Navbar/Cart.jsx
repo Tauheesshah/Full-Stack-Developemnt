@@ -18,7 +18,7 @@ const Cart = () => {
       if (!user?.token) return;
 
       const { data } = await axios.get(
-        "http://localhost:5000/api/cart/my-cart",
+        "https://laptopwala-backend-1.onrender.com/api/cart/my-cart",
         {
           headers: {
             Authorization: `Bearer ${user.token}`,
@@ -42,7 +42,7 @@ const Cart = () => {
   // =========================
   const increment = async (id) => {
     await axios.post(
-      "http://localhost:5000/api/cart/add",
+      "https://laptopwala-backend-1.onrender.com/api/cart/add",
       { productId: id },
       {
         headers: {
@@ -59,7 +59,7 @@ const Cart = () => {
   // =========================
   const decrement = async (id) => {
     await axios.put(
-      "http://localhost:5000/api/cart/decrement",
+      "https://laptopwala-backend-1.onrender.com/api/cart/decrement",
       { productId: id },
       {
         headers: {

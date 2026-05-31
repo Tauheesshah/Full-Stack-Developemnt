@@ -80,7 +80,7 @@ const totalQty = useSelector((state) =>
       }
 
       const { data } = await axios.get(
-        "http://localhost:5000/api/wishlist",
+        "https://laptopwala-backend-1.onrender.com/api/wishlist",
         {
           headers: {
             Authorization: `Bearer ${userInfo.token}`,

@@ -50,7 +50,7 @@ const ProductDetails = () => {
 
         const { data } = await axios.get(
 
-          `http://localhost:5000/api/products/${id}`
+          `https://laptopwala-backend-1.onrender.com/api/products/${id}`
 
         );
 
@@ -88,7 +88,7 @@ const ProductDetails = () => {
 
         const { data } = await axios.get(
 
-          "http://localhost:5000/api/wishlist",
+          "https://laptopwala-backend-1.onrender.com/api/wishlist",
 
           {
             headers: {
@@ -149,7 +149,7 @@ const ProductDetails = () => {
 
         await axios.delete(
 
-          `http://localhost:5000/api/wishlist/${product._id}`,
+          `https://laptopwala-backend-1.onrender.com/api/wishlist/${product._id}`,
 
           {
             headers: {
@@ -176,7 +176,7 @@ const ProductDetails = () => {
 
         await axios.post(
 
-          "http://localhost:5000/api/wishlist",
+          "https://laptopwala-backend-1.onrender.com/api/wishlist",
 
           {
             productId: product._id,

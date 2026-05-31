@@ -12,7 +12,7 @@ export const useCartLoader = () => {
       if (!user) return;
 
       const { data } = await axios.get(
-        "http://localhost:5000/api/cart/my-cart",
+        "https://laptopwala-backend-1.onrender.com/api/cart/my-cart",
         {
           headers: {
             Authorization: `Bearer ${user.token}`,
