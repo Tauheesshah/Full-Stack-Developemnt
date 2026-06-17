@@ -1,0 +1,56 @@
+/* *,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+  background: var(--bg-white);
+  color: var(--text-primary);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  cursor: pointer;
+}
+
+.container-custom {
+  width: min(1280px, 92%);
+  margin-inline: auto;
+}
+
+.section-padding {
+  padding: 100px 0;
+}
+
+.gradient-text {
+  background: linear-gradient(
+    135deg,
+    #2563eb,
+    #7c3aed
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.glass-card {
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.4);
+}
+
+.shadow-modern {
+  box-shadow:
+    0 10px 40px rgba(0,0,0,.08);
+} */

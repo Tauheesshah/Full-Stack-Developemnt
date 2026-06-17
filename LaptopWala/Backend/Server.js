@@ -17,6 +17,13 @@ connectDB();
 const app = express();
 
 app.use(cors());
+// app.use(cors({
+//   origin: [
+//     "https://laptopwala.co.in",
+//     "https://www.laptopwala.co.in"
+//   ],
+//   credentials: true
+// }));
 app.use(express.json());
 
 app.get("/", (req, res) => {
