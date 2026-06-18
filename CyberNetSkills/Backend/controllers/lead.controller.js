@@ -11,8 +11,6 @@ export const createLead = async (req, res) => {
     } = req.body;
 
     const lead = await Lead.create({
-      user: req.user._id,
-      username: req.user.fullName,
       fullName,
       email,
       phone,
@@ -67,7 +65,6 @@ export const getMyLeads = async (req, res) => {
 export const getAllLeads = async (req, res) => {
   try {
     const leads = await Lead.find()
-      .populate("user", "username email")
       .sort({ createdAt: -1 });
 
     res.status(200).json({

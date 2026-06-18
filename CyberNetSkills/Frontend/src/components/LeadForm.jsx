@@ -8,11 +8,16 @@ const [phone, setPhone] = useState("");
 const [course, setCourse] = useState("");
 const [message, setMessage] = useState("");
 
+const [success, setSuccess] = useState("");
+const [error, setError] = useState("");
+
 const handleSubmit = async (e) => {
   e.preventDefault();
 
+  setSuccess("");
+  setError("");
+
   try {
-    const token = localStorage.getItem("token");
     const res = await axios.post(
       "http://localhost:5000/api/v1/leads",
       {
@@ -21,28 +26,32 @@ const handleSubmit = async (e) => {
         phone,
         course,
         message,
-      },
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
       }
     );
 
-    alert(res.data.message);
+    setSuccess(res.data.message);
 
     setFullName("");
     setEmail("");
     setPhone("");
     setCourse("");
     setMessage("");
+
   } catch (error) {
     console.log(error);
-    alert("Something went wrong");
+
+    setError(
+      error?.response?.data?.message ||
+      "Something went wrong. Please try again."
+    );
   }
 };
+
+
+
+
   return (
-    <section className="relative py-24 bg-gradient-to-b from-slate-950 via-slate-900 to-black overflow-hidden">
+    <section id="book-demo" className="relative py-24 bg-gradient-to-b from-slate-950 via-slate-900 to-black overflow-hidden">
 
       {/* Background Glow */}
 
@@ -109,6 +118,21 @@ const handleSubmit = async (e) => {
             </p>
 
           </div>
+          {/* Success Message */}
+
+          {success && (
+            <div className="mt-8 mb-6 bg-green-500/10 border border-green-500/30 text-green-400 px-5 py-4 rounded-xl text-center">
+              {success}
+            </div>
+          )}
+          
+          {/* Error Message */}
+          
+          {error && (
+            <div className="mt-8 mb-6 bg-red-500/10 border border-red-500/30 text-red-400 px-5 py-4 rounded-xl text-center">
+              {error}
+            </div>
+          )}
 
           {/* Form */}
 

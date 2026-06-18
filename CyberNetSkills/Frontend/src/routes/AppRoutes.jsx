@@ -11,47 +11,48 @@ import Login from "../pages/Login";
 import Signup from "../pages/SignUp";
 import CourseDetails from "../pages/CourseDetails";
 
+import ProtectedRoute from "../ProtectedRoute";
+
 const AppRoutes = () => {
   return (
     <Routes>
       <Route element={<MainLayout />}>
-
         <Route path="/" element={<Home />} />
 
-        <Route
-          path="/about"
-          element={<About />}
-        />
+        <Route path="/about" element={<About />} />
 
-        <Route
-          path="/contact"
-          element={<Contact />}
-        />
+        <Route path="/contact" element={<Contact />} />
 
         <Route
           path="/placements"
-          element={<Placements />}
+          element={
+            <ProtectedRoute>
+              <Placements />
+            </ProtectedRoute>
+          }
         />
-
+        
         <Route
           path="/success-stories"
-          element={<SuccessStories />}
+          element={
+            <ProtectedRoute>
+              <SuccessStories />
+            </ProtectedRoute>
+          }
         />
-
-        <Route
-          path="/login"
-          element={<Login />}
-        />
-
-        <Route
-          path="/signup"
-          element={<Signup />}
-        />
+        
         <Route
           path="/courses/:slug"
-          element={<CourseDetails />}
+          element={
+            <ProtectedRoute>
+              <CourseDetails />
+            </ProtectedRoute>
+          }
         />
 
+        <Route path="/login" element={<Login />} />
+
+        <Route path="/signup" element={<Signup />} />
       </Route>
     </Routes>
   );

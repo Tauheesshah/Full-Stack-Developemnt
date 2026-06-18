@@ -32,12 +32,14 @@ function Signup() {
 
       navigate("/login");
     } catch (error) {
-      console.log(error);
+  console.log("STATUS:", error.response?.status);
+  console.log("DATA:", error.response?.data);
 
-      setError(
-        error?.response?.data?.message ||
-          "Something went wrong"
-      );
+  setError(
+    error?.response?.data?.message ||
+    "Something went wrong"
+  );
+
     } finally {
       setLoading(false);
     }
